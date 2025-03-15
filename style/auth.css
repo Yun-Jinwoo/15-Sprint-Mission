@@ -49,6 +49,13 @@
   padding: 1.6rem 2.4rem;
 }
 
+.form-container input::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--gray400);
+}
+
 .email-container,
 .nickname-container,
 .password-container,
