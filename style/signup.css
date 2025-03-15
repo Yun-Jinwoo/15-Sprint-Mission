@@ -41,7 +41,10 @@ button {
     font-weight: 600;
     line-height: 3.2rem;
 }
-
+.login-form{
+    width: 20
+        color: blue
+}
 .logo{
     width: 40rem;
 }

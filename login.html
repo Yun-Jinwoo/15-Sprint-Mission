@@ -1,62 +1,72 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" as="style" crossorigin
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <link rel="stylesheet" href="/style/reset.css">
-    <link rel="stylesheet" href="/style/base.css">
-    <link rel="stylesheet" href="/style/login.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="/style/reset.css" />
+    <link rel="stylesheet" href="/style/base.css" />
+    <link rel="stylesheet" href="/style/login.css" />
     <title>로그인</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <a href="/"><img src="img/logo.png" alt="판다마켓 로고" class="logo"></a>
+      <a href="/"
+        ><img src="img/logo.png" alt="판다마켓 로고" class="logo"
+      /></a>
     </header>
     <main>
-        <section>
+      <section>
+        <form class="login-form">
+          <div class="email-container">
+            <label for="login-email">이메일</label>
+            <input id="login-email" name="email" type="email" />
+          </div>
 
-            <form class="login-form">
+          <div class="password-container">
+            <label for="login-password">비밀번호</label>
+            <div class="password-input">
+              <input id="login-password" name="password" type="password" />
+              <button>
+                <img
+                  src="img/login/btn_visibility_off.png"
+                  alt="비밀번호 보기"
+                  style="width: 2.4rem"
+                />
+              </button>
+            </div>
+          </div>
 
-                <div class="email-container">
-                    <label for="login-email">이메일</label>
-                    <input id="login-email" name="email" type="email">
-                </div>
-
-                <div class="password-container">
-                    <label for="login-password">비밀번호</label>
-                    <div class="password-input">
-                        <input id="login-password" name="password" type="password">
-                        <img src="img/login/btn_visibility_off.png" alt="비밀번호 보기" style="width: 2.4rem">
-                    </div>
-                </div>
-
-                <button type="submit">
-                    로그인
-                </button>
-            </form>
-
-        </section>
-        <section class="social-login">
-            <p>간편 로그인하기</p>
-            <ul>
-                <li>
-                    <a href="https://www.google.com/"><img src="img/login/google_logo.png" alt="구글 계정으로 로그인"></a>
-                </li>
-                <li>
-                    <a href="https://www.kakaocorp.com/page/"><img src="img/login/kakao_logo.png"
-                            alt="카카오톡 계정으로 로그인"></a>
-                </li>
-            </ul>
-        </section>
-        <section class="ask-signup-section">
-            <p>판다마켓이 처음이신가요?</p>
-            <a href="/signup.html">회원가입</a>
-        </section>
+          <button type="submit">로그인</button>
+        </form>
+      </section>
+      <section class="social-login">
+        <p>간편 로그인하기</p>
+        <ul>
+          <li>
+            <a href="https://www.google.com/"
+              ><img src="img/login/google_logo.png" alt="구글 계정으로 로그인"
+            /></a>
+          </li>
+          <li>
+            <a href="https://www.kakaocorp.com/page/"
+              ><img
+                src="img/login/kakao_logo.png"
+                alt="카카오톡 계정으로 로그인"
+            /></a>
+          </li>
+        </ul>
+      </section>
+      <section class="ask-signup-section">
+        <p>판다마켓이 처음이신가요?</p>
+        <a href="/signup.html">회원가입</a>
+      </section>
     </main>
-</body>
-
+  </body>
 </html>
