@@ -147,8 +147,8 @@ nav {
 
 footer {
   background-color: var(--gray900);
-  height: 16rem;
-  padding: 3.2rem 40rem;
+  height: 160px;
+  padding: 32px 400px;
   display: flex;
   justify-content: space-between;
 }
@@ -156,21 +156,21 @@ footer {
 .codeit {
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.9rem;
+  line-height: 19px;
   color: var(--gray400);
 }
 
 .footer-center {
   display: flex;
-  gap: 3rem;
+  gap: 30px;
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.9rem;
+  line-height: 19px;
   color: var(--gray200);
 }
 
 .footer-right a {
-  margin-right: 1.2rem;
+  margin-right: 12px;
 }
 
 .footer-right a:last-child {
@@ -272,6 +272,52 @@ footer {
 /* Mobile: 375px 이상 ~ 767px 이하 */
 @media screen and (max-width: 767px) {
   html {
-    font-size: 5px;
+    font-size: 6px;
+  }
+
+  nav {
+    padding: 0 16px;
+  }
+
+  .top-section {
+    height: 95rem;
+  }
+
+  .top-section-container {
+    flex-direction: column;
+    gap: 20rem;
+  }
+
+  .top-section-text {
+    text-align: center;
+  }
+
+  .top-section p br {
+    display: inline;
+  }
+
+  .top-section img,
+  .bottom-section img {
+    height: auto;
+    width: 93rem;
+  }
+
+  .main-section {
+    padding: 3.25rem;
+  }
+
+  .main-section img {
+    width: 85rem;
+    height: auto;
+  }
+
+  .bottom-section {
+    height: 115rem;
+    margin-top: 3.25rem;
+  }
+
+  .bottom-section-container {
+    flex-direction: column;
+    gap: 20rem;
   }
 }
