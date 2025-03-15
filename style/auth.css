@@ -1,4 +1,5 @@
-.login-page {
+.login-page,
+.signup-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,7 +24,9 @@
 
 .form-container,
 .email-container,
-.password-container {
+.nickname-container,
+.password-container,
+.password-check-container {
   display: flex;
   flex-direction: column;
 }
@@ -47,7 +50,9 @@
 }
 
 .email-container,
-.password-container {
+.nickname-container,
+.password-container,
+.password-check-container {
   gap: 1.6rem;
 }
 
