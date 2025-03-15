@@ -87,6 +87,15 @@ video {
   vertical-align: baseline;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
