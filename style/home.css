@@ -3,7 +3,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 200px;
-  height: 7rem;
+  height: 70px;
   background-color: rgba(255, 255, 255, 0.9);
   position: fixed;
   top: 0;
@@ -14,7 +14,7 @@ nav {
 .logo {
   display: flex;
   align-items: center;
-  height: 5.1rem;
+  height: 51px;
 }
 
 .login-link {
@@ -23,48 +23,48 @@ nav {
   color: #ffffff;
   background-color: var(--blue);
   border-radius: 8px;
-  padding: 1.2rem 2.3rem;
+  padding: 12px 23px;
 }
 
 .top-section,
 .bottom-section {
-  margin-top: 7rem;
+  margin-top: 70px;
   background-color: #cfe5ff;
-  height: 54rem;
+  height: 540px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
 
 .bottom-section {
-  margin-top: 13.8rem;
+  margin-top: 138px;
 }
 
 .top-section img {
-  width: 74.6rem;
-  height: 34rem;
+  width: 746px;
+  height: 340px;
 }
 
 .bottom-section img {
-  width: 74.6rem;
-  height: 39.7rem;
+  width: 746px;
+  height: 340px;
 }
 
 .top-section-container {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: 7px;
 }
 
 .bottom-section-container {
   display: flex;
   align-items: center;
-  gap: 6.9rem;
+  gap: 69px;
 }
 
 .top-section-text,
 .bottom-section-text {
-  padding-bottom: 6rem;
+  padding-bottom: 60px;
 }
 
 .top-section-text p,
@@ -80,7 +80,7 @@ nav {
   font-weight: 600;
   color: #ffffff;
   background-color: var(--blue);
-  padding: 1.6rem 12.4rem;
+  padding: 16px 124px;
   border-radius: 40px;
   margin-top: 3.2rem;
   display: inline-block;
@@ -90,7 +90,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 13.8rem 0;
+  padding: 138px 0;
 }
 
 .hot-item,
@@ -98,24 +98,24 @@ nav {
 .register {
   display: flex;
   align-items: center;
-  gap: 6.4rem;
+  gap: 64px;
   background-color: #fcfcfc;
-  border-radius: 1.2rem;
+  border-radius: 12px;
 }
 
 .text-container {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 12px;
 }
 
 .hot-item .text-container,
 .register .text-container {
-  padding-right: 2.4rem;
+  padding-right: 24px;
 }
 
 .search .text-container {
-  padding-left: 2.4rem;
+  padding-left: 24px;
 }
 
 .small-text {
@@ -141,8 +141,8 @@ nav {
 }
 
 .main-section img {
-  width: 57.9rem;
-  height: 44.4rem;
+  width: 579px;
+  height: 444px;
 }
 
 footer {
@@ -193,12 +193,12 @@ footer {
   }
 
   .top-section {
-    height: 95rem;
+    height: 771px;
   }
 
   .top-section-container {
     flex-direction: column;
-    gap: 20rem;
+    gap: 141px;
   }
 
   .top-section-text {
@@ -210,7 +210,7 @@ footer {
   .top-section img,
   .bottom-section img {
     height: auto;
-    width: 93rem;
+    width: 744px;
   }
 
   .top-section p br,
@@ -219,11 +219,11 @@ footer {
   }
 
   .main-section {
-    padding: 3.25rem;
+    padding: 26px;
   }
 
   .main-section img {
-    width: 85rem;
+    width: 696px;
     height: auto;
   }
 
@@ -248,13 +248,13 @@ footer {
   }
 
   .bottom-section {
-    height: 115rem;
-    margin-top: 3.25rem;
+    height: 927px;
+    margin-top: 26px;
   }
 
   .bottom-section-container {
     flex-direction: column;
-    gap: 20rem;
+    gap: 160px;
   }
 
   .bottom-section-text {
@@ -265,7 +265,7 @@ footer {
   }
 
   footer {
-    padding: 4rem 13rem;
+    padding: 32px 104px;
   }
 }
 
@@ -280,12 +280,12 @@ footer {
   }
 
   .top-section {
-    height: 95rem;
+    height: 540px;
   }
 
   .top-section-container {
     flex-direction: column;
-    gap: 20rem;
+    gap: 62px;
   }
 
   .top-section-text {
@@ -296,28 +296,32 @@ footer {
     display: inline;
   }
 
+  .top-section-text a {
+    padding: 12px 71px;
+  }
+
   .top-section img,
   .bottom-section img {
     height: auto;
-    width: 93rem;
+    width: 448px;
   }
 
   .main-section {
-    padding: 3.25rem;
+    padding: 20px;
   }
 
   .main-section img {
-    width: 85rem;
+    width: 344px;
     height: auto;
   }
 
   .bottom-section {
-    height: 115rem;
+    height: 540px;
     margin-top: 3.25rem;
   }
 
   .bottom-section-container {
     flex-direction: column;
-    gap: 20rem;
+    gap: 61px;
   }
 }
