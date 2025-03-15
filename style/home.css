@@ -212,8 +212,38 @@ footer {
     width: auto;
   }
 
-  .top-section p br {
+  .top-section p br,
+  .big-text br {
     display: none;
+  }
+
+  .main-section {
+    padding: 3.25rem;
+  }
+
+  .main-section img {
+    width: 85rem;
+    height: auto;
+  }
+
+  .hot-item,
+  .register {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .search {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 0;
+  }
+
+  .search .text-container {
+    align-items: flex-end;
+  }
+
+  .search .text-container p {
+    text-align: end;
   }
 }
 
