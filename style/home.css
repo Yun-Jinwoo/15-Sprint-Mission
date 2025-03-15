@@ -34,6 +34,7 @@ nav {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  overflow: hidden;
 }
 
 .bottom-section {
@@ -300,10 +301,14 @@ footer {
     padding: 12px 71px;
   }
 
-  .top-section img,
-  .bottom-section img {
+  .top-section img {
     height: auto;
     width: 448px;
+  }
+
+  .bottom-section img {
+    height: auto;
+    width: 375px;
   }
 
   .main-section {
@@ -323,5 +328,27 @@ footer {
   .bottom-section-container {
     flex-direction: column;
     gap: 61px;
+  }
+  footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3개 열 생성 */
+    grid-template-rows: auto auto; /* 두 개의 행 */
+    gap: 10px; /* 요소 간 간격 */
+    padding: 32px;
+  }
+
+  .codeit {
+    grid-column: 1 / -1; /* 첫 번째 아이템은 한 줄 전체 차지 */
+    grid-row: 2;
+    align-self: end;
+  }
+
+  .footer-center {
+    grid-column: 1;
+  }
+
+  .footer-right {
+    grid-column: 2;
+    justify-self: end;
   }
 }
