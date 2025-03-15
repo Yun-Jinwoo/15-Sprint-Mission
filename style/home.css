@@ -154,7 +154,7 @@ footer {
 }
 
 .codeit {
-  font-size: 1.6rem;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.9rem;
   color: var(--gray400);
@@ -163,7 +163,7 @@ footer {
 .footer-center {
   display: flex;
   gap: 3rem;
-  font-size: 1.6rem;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.9rem;
   color: var(--gray200);
@@ -178,8 +178,8 @@ footer {
 }
 
 .footer-right img {
-  width: 2rem;
-  height: 2rem;
+  width: 20px;
+  height: 20px;
 }
 
 /* Tablet: 768px 이상 ~ 1199px 이하 */
@@ -209,8 +209,8 @@ footer {
 
   .top-section img,
   .bottom-section img {
-    height: 45rem;
-    width: auto;
+    height: auto;
+    width: 93rem;
   }
 
   .top-section p br,
@@ -262,6 +262,10 @@ footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  footer {
+    padding: 4rem 13rem;
   }
 }
 
