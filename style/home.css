@@ -207,7 +207,8 @@ footer {
     align-items: center;
   }
 
-  .top-section img {
+  .top-section img,
+  .bottom-section img {
     height: 45rem;
     width: auto;
   }
@@ -244,6 +245,23 @@ footer {
 
   .search .text-container p {
     text-align: end;
+  }
+
+  .bottom-section {
+    height: 115rem;
+    margin-top: 3.25rem;
+  }
+
+  .bottom-section-container {
+    flex-direction: column;
+    gap: 20rem;
+  }
+
+  .bottom-section-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }
 
