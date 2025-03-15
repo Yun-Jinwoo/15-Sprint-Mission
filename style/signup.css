@@ -1,52 +1,27 @@
-body {
+.signup-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-header {
+.page-header {
   display: flex;
   justify-content: center;
   padding-bottom: 4rem;
   width: 64rem;
 }
 
-main {
-  width: 64rem;
-}
-
-label {
-  font-size: 1.8rem;
-  font-weight: 700;
-  line-height: 2.6rem;
-}
-
-input {
-  height: 5.6rem;
-  border: none;
-  border-radius: 12px;
-  background-color: var(--gray100);
-  padding: 1.6rem 2.4rem;
-}
-
-button {
-  height: 5.6rem;
-  border: none;
-  border-radius: 40px;
-  background-color: var(--blue);
-  color: var(--gray100);
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 3.2rem;
-}
-
 .logo {
   width: 40rem;
 }
 
-.signup-form,
+.page-main {
+  width: 64rem;
+}
+
+.form-container,
 .email-container,
 .nickname-container,
 .password-container,
@@ -55,8 +30,22 @@ button {
   flex-direction: column;
 }
 
-.signup-form {
+.form-container {
   gap: 2.4rem;
+}
+
+.form-container label {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.6rem;
+}
+
+.form-container input {
+  height: 5.6rem;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--gray100);
+  padding: 1.6rem 2.4rem;
 }
 
 .email-container,
@@ -83,9 +72,21 @@ button {
   top: 1.6rem;
   width: 2.4rem;
   height: 2.4rem;
+  border: none;
   background-image: url("../img/login/btn_visibility_off.png");
   background-size: cover;
   background-color: transparent;
+}
+
+.submit-button {
+  height: 5.6rem;
+  border: none;
+  border-radius: 40px;
+  background-color: var(--blue);
+  color: var(--gray100);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 3.2rem;
 }
 
 .social-login {
@@ -114,7 +115,7 @@ li img {
   width: 4.2rem;
 }
 
-.ask-login-section {
+.ask-section {
   display: flex;
   justify-content: center;
   margin-top: 2.4rem;
@@ -124,7 +125,7 @@ li img {
   gap: 0.4rem;
 }
 
-.ask-login-section a {
+.ask-section a {
   color: #3692ff;
   text-decoration: underline;
 }

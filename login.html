@@ -15,29 +15,29 @@
     <title>로그인</title>
   </head>
 
-  <body>
-    <header>
+  <body class="login-page">
+    <header class="page-header">
       <a href="/"
         ><img src="img/logo.png" alt="판다마켓 로고" class="logo"
       /></a>
     </header>
-    <main>
+    <main class="page-main">
       <section>
-        <form class="login-form">
+        <form class="form-container">
           <div class="email-container">
-            <label for="login-email">이메일</label>
-            <input id="login-email" name="email" type="email" />
+            <label for="input-email">이메일</label>
+            <input id="input-email" name="email" type="email" />
           </div>
 
           <div class="password-container">
-            <label for="login-password">비밀번호</label>
+            <label for="input-password">비밀번호</label>
             <div class="password-input">
-              <input id="login-password" name="password" type="password" />
+              <input id="input-password" name="password" type="password" />
               <button class="visibility"></button>
             </div>
           </div>
 
-          <button type="submit">로그인</button>
+          <button type="submit" class="submit-button">로그인</button>
         </form>
       </section>
       <section class="social-login">
@@ -57,7 +57,7 @@
           </li>
         </ul>
       </section>
-      <section class="ask-signup-section">
+      <section class="ask-section">
         <p>판다마켓이 처음이신가요?</p>
         <a href="/signup.html">회원가입</a>
       </section>
