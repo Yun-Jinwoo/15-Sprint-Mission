@@ -2,7 +2,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20rem;
+  padding: 0 200px;
   height: 7rem;
   background-color: rgba(255, 255, 255, 0.9);
   position: fixed;
@@ -136,6 +136,7 @@ nav {
   font-size: 2.4rem;
   font-weight: 500;
   line-height: 3.2rem;
+  margin-top: 1rem;
   color: var(--gray700);
 }
 
@@ -179,4 +180,46 @@ footer {
 .footer-right img {
   width: 2rem;
   height: 2rem;
+}
+
+/* Tablet: 768px 이상 ~ 1199px 이하 */
+@media screen and (max-width: 1199px) {
+  html {
+    font-size: 8px;
+  }
+
+  nav {
+    padding: 0 24px;
+  }
+
+  .top-section {
+    height: 95rem;
+  }
+
+  .top-section-container {
+    flex-direction: column;
+    gap: 20rem;
+  }
+
+  .top-section-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .top-section img {
+    height: 45rem;
+    width: auto;
+  }
+
+  .top-section p br {
+    display: none;
+  }
+}
+
+/* Mobile: 375px 이상 ~ 767px 이하 */
+@media screen and (max-width: 767px) {
+  html {
+    font-size: 5px;
+  }
 }
