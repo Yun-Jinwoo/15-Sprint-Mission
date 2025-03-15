@@ -42,6 +42,10 @@ button {
     line-height: 3.2rem;
 }
 
+.logo{
+    width: 40rem;
+}
+
 .signup-form,
 .email-container,
 .nickname-container,
