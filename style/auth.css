@@ -11,7 +11,7 @@
   display: flex;
   justify-content: center;
   padding-bottom: 4rem;
-  width: 64rem;
+  max-width: 64rem;
 }
 
 .logo {
@@ -110,16 +110,16 @@
   border-radius: 8px;
 }
 
-ul {
+.social-list {
   display: flex;
   gap: 1.6rem;
 }
 
-li a {
+.social-list a {
   display: flex;
 }
 
-li img {
+.social-list img {
   width: 4.2rem;
 }
 
