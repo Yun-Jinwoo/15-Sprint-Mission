@@ -18,3 +18,24 @@ function wrongEmailEvent(event) {
 }
 
 emailInput.addEventListener("focusout", wrongEmailEvent);
+
+const passwordInput = document.querySelector("#input-password");
+const wrongPassword = document.createElement("span");
+
+function wrongPasswordEvent(event) {
+  event.target.classList.add("warning");
+  if (event.target.value === "") {
+    wrongPassword.textContent = "비밀번호를 입력해주세요.";
+  } else if (event.target.value.length < 8) {
+    wrongPassword.textContent = "비밀번호를 8자 이상 입력해주세요.";
+  } else {
+    wrongPassword.textContent = "";
+  }
+
+  passwordInput.parentElement.appendChild(wrongPassword);
+  if (wrongPassword.textContent === "") {
+    passwordInput.parentElement.removeChild(wrongPassword);
+  }
+}
+
+passwordInput.addEventListener("focusout", wrongPasswordEvent);
