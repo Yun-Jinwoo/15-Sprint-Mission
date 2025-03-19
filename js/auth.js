@@ -1,5 +1,6 @@
 const emailInput = document.querySelector("#input-email");
 const wrongEmail = document.createElement("span");
+wrongEmail.classList.add("error-message");
 
 function wrongEmailEvent(event) {
   if (event.target.value === "") {
@@ -25,6 +26,7 @@ emailInput.addEventListener("focusout", wrongEmailEvent);
 
 const passwordInput = document.querySelector("#input-password");
 const wrongPassword = document.createElement("span");
+wrongPassword.classList.add("error-message");
 
 function wrongPasswordEvent(event) {
   if (event.target.value === "") {

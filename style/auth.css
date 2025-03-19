@@ -63,10 +63,13 @@
   gap: 1.6rem;
 }
 
+.email-input input,
+.nickname-input input {
+  width: 100%;
+}
+
 .password-input {
   position: relative;
-  display: inline-block;
-  width: 100%;
 }
 
 .password-input input {
@@ -76,6 +79,16 @@
 
 .form-container .warning {
   border: 1px solid var(--red);
+}
+
+.error-message {
+  display: inline-block;
+  margin-left: 16px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--red);
 }
 
 .visibility {
