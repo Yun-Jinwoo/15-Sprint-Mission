@@ -101,6 +101,10 @@
   line-height: 3.2rem;
 }
 
+.submit-button:disabled {
+  background-color: var(--gray400);
+}
+
 .social-login {
   background-color: #e6f2ff;
   display: flex;
