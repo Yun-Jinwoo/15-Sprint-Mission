@@ -103,6 +103,10 @@
   background-color: transparent;
 }
 
+.visible {
+  background-image: url("../img/login/btn_visibility_on.png");
+}
+
 .submit-button {
   height: 5.6rem;
   border: none;

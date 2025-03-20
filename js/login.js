@@ -78,3 +78,17 @@ loginForm.addEventListener("submit", function (event) {
   event.preventDefault();
   window.location.href = "/items.html";
 });
+
+/* 눈모양 버튼 클릭시 */
+document.querySelectorAll(".visibility").forEach((button) => {
+  button.addEventListener("click", function () {
+    const passwordInput = this.previousElementSibling;
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      this.classList.add("visible");
+    } else {
+      passwordInput.type = "password";
+      this.classList.remove("visible");
+    }
+  });
+});
