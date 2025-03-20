@@ -85,7 +85,10 @@ const wrongpasswordCheck = document.createElement("span");
 wrongpasswordCheck.classList.add("error-message");
 
 function wrongPasswordCheckEvent() {
-  if (passwordCheckInput.value !== passwordInput.value) {
+  if (passwordCheckInput.value === "") {
+    wrongpasswordCheck.textContent = "";
+    passwordCheckInput.classList.remove("warning", "done");
+  } else if (passwordCheckInput.value !== passwordInput.value) {
     passwordCheckInput.classList.add("warning");
     passwordCheckInput.classList.remove("done");
     wrongpasswordCheck.textContent = "비밀번호가 일치하지 않습니다.";
@@ -100,7 +103,7 @@ function wrongPasswordCheckEvent() {
   }
 }
 /* password가 변경되어도 즉시 password-check과 비교 */
-passwordInput.addEventListener("focusout", wrongPasswordCheckEvent);
+passwordInput.addEventListener("input", wrongPasswordCheckEvent);
 passwordCheckInput.addEventListener("focusout", wrongPasswordCheckEvent);
 passwordCheckInput.addEventListener("input", wrongPasswordCheckEvent);
 
