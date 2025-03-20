@@ -24,6 +24,7 @@ function wrongEmailEvent(event) {
 }
 
 emailInput.addEventListener("focusout", wrongEmailEvent);
+emailInput.addEventListener("input", wrongEmailEvent);
 
 /* nickname 에러 메시지 처리 */
 
@@ -48,6 +49,7 @@ function wrongNicknameEvent(event) {
 }
 
 nicknameInput.addEventListener("focusout", wrongNicknameEvent);
+nicknameInput.addEventListener("input", wrongNicknameEvent);
 
 /* password 에러 메시지 처리 */
 const passwordInput = document.querySelector("#input-password");
@@ -75,6 +77,7 @@ function wrongPasswordEvent(event) {
 }
 
 passwordInput.addEventListener("focusout", wrongPasswordEvent);
+passwordInput.addEventListener("input", wrongPasswordEvent);
 
 /* password-check 에러 메시지 처리 */
 const passwordCheckInput = document.querySelector("#input-password-check");
@@ -99,6 +102,7 @@ function wrongPasswordCheckEvent() {
 /* password가 변경되어도 즉시 password-check과 비교 */
 passwordInput.addEventListener("focusout", wrongPasswordCheckEvent);
 passwordCheckInput.addEventListener("focusout", wrongPasswordCheckEvent);
+passwordCheckInput.addEventListener("input", wrongPasswordCheckEvent);
 
 /* email, nickname, password, password-check에 유효한 값이 입력되면 회원가입 페이지 버튼 활성화 */
 const signupButton = document.querySelector(".signup-page .submit-button");

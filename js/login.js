@@ -24,6 +24,7 @@ function wrongEmailEvent(event) {
 }
 
 emailInput.addEventListener("focusout", wrongEmailEvent);
+emailInput.addEventListener("input", wrongEmailEvent);
 
 /* password 에러 메시지 처리 */
 const passwordInput = document.querySelector("#input-password");
@@ -51,6 +52,7 @@ function wrongPasswordEvent(event) {
 }
 
 passwordInput.addEventListener("focusout", wrongPasswordEvent);
+passwordInput.addEventListener("input", wrongPasswordEvent);
 
 /* email, password에 유효한 값이 입력되면 로그인 페이지 버튼 활성화 */
 const loginButton = document.querySelector(".login-page .submit-button");
