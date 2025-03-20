@@ -102,7 +102,7 @@ passwordCheckInput.addEventListener("focusout", wrongPasswordCheckEvent);
 /* email, password에 유효한 값이 입력되면 로그인 페이지 버튼 활성화 */
 const loginButton = document.querySelector(".login-page .submit-button");
 loginButton.disabled = true;
-function activateButton() {
+function activateLoginButton() {
   if (
     emailInput.classList.contains("done") &&
     passwordInput.classList.contains("done")
@@ -113,7 +113,32 @@ function activateButton() {
   }
 }
 
-emailInput.addEventListener("input", activateButton);
-passwordInput.addEventListener("input", activateButton);
-emailInput.addEventListener("focusout", activateButton);
-passwordInput.addEventListener("focusout", activateButton);
+emailInput.addEventListener("input", activateLoginButton);
+passwordInput.addEventListener("input", activateLoginButton);
+emailInput.addEventListener("focusout", activateLoginButton);
+passwordInput.addEventListener("focusout", activateLoginButton);
+
+/* email, nickname, password, password-check에 유효한 값이 입력되면 회원가입 페이지 버튼 활성화 */
+const signupButton = document.querySelector(".signup-page .submit-button");
+signupButton.disabled = true;
+function activateSignupButton() {
+  if (
+    emailInput.classList.contains("done") &&
+    nicknameInput.classList.contains("done") &&
+    passwordInput.classList.contains("done") &&
+    passwordCheckInput.classList.contains("done")
+  ) {
+    signupButton.disabled = false;
+  } else {
+    signupButton.disabled = true;
+  }
+}
+
+emailInput.addEventListener("input", activateSignupButton);
+nicknameInput.addEventListener("input", activateSignupButton);
+passwordInput.addEventListener("input", activateSignupButton);
+passwordCheckInput.addEventListener("input", activateSignupButton);
+emailInput.addEventListener("focusout", activateSignupButton);
+nicknameInput.addEventListener("focusout", activateSignupButton);
+passwordInput.addEventListener("focusout", activateSignupButton);
+passwordCheckInput.addEventListener("focusout", activateSignupButton);
