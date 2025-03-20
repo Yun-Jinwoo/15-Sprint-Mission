@@ -1,4 +1,4 @@
-import { togglePasswordVisibility } from "./common.js";
+import { togglePasswordVisibility, redirectToPage } from "./common.js";
 /* email 에러 메시지 처리 */
 const emailInput = document.querySelector("#input-email");
 const wrongEmail = document.createElement("span");
@@ -77,10 +77,9 @@ passwordInput.addEventListener("focusout", activateLoginButton);
 /* 로그인 버튼 클릭시 items 페이지로 이동 */
 const loginForm = document.querySelector(".login-page .form-container");
 
-loginForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  window.location.href = "/items.html";
-});
+loginForm.addEventListener("submit", (event) =>
+  redirectToPage(event, "/items.html")
+);
 
 /* 눈모양 버튼 클릭시 */
 document.querySelectorAll(".visibility").forEach((button) => {

@@ -10,4 +10,10 @@ function togglePasswordVisibility(button) {
   }
 }
 
-export { togglePasswordVisibility };
+// 버튼 클릭시 특정 페이지로 이동
+function redirectToPage(event, redirectUrl) {
+  event.preventDefault();
+  window.location.href = redirectUrl;
+}
+
+export { togglePasswordVisibility, redirectToPage };
