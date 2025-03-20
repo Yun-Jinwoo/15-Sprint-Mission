@@ -1,4 +1,8 @@
-import { togglePasswordVisibility, redirectToPage } from "./common.js";
+import {
+  togglePasswordVisibility,
+  activateButton,
+  redirectToPage,
+} from "./common.js";
 
 /* email 에러 메시지 처리 */
 const emailInput = document.querySelector("#input-email");
@@ -111,28 +115,38 @@ passwordCheckInput.addEventListener("input", wrongPasswordCheckEvent);
 
 /* email, nickname, password, password-check에 유효한 값이 입력되면 회원가입 페이지 버튼 활성화 */
 const signupButton = document.querySelector(".signup-page .submit-button");
+const inputArray = [
+  emailInput,
+  nicknameInput,
+  passwordInput,
+  passwordCheckInput,
+];
 signupButton.disabled = true;
-function activateSignupButton() {
-  if (
-    emailInput.classList.contains("done") &&
-    nicknameInput.classList.contains("done") &&
-    passwordInput.classList.contains("done") &&
-    passwordCheckInput.classList.contains("done")
-  ) {
-    signupButton.disabled = false;
-  } else {
-    signupButton.disabled = true;
-  }
-}
 
-emailInput.addEventListener("input", activateSignupButton);
-nicknameInput.addEventListener("input", activateSignupButton);
-passwordInput.addEventListener("input", activateSignupButton);
-passwordCheckInput.addEventListener("input", activateSignupButton);
-emailInput.addEventListener("focusout", activateSignupButton);
-nicknameInput.addEventListener("focusout", activateSignupButton);
-passwordInput.addEventListener("focusout", activateSignupButton);
-passwordCheckInput.addEventListener("focusout", activateSignupButton);
+emailInput.addEventListener("input", () =>
+  activateButton(signupButton, inputArray)
+);
+nicknameInput.addEventListener("input", () =>
+  activateButton(signupButton, inputArray)
+);
+passwordInput.addEventListener("input", () =>
+  activateButton(signupButton, inputArray)
+);
+passwordCheckInput.addEventListener("input", () =>
+  activateButton(signupButton, inputArray)
+);
+emailInput.addEventListener("focusout", () =>
+  activateButton(signupButton, inputArray)
+);
+nicknameInput.addEventListener("focusout", () =>
+  activateButton(signupButton, inputArray)
+);
+passwordInput.addEventListener("focusout", () =>
+  activateButton(signupButton, inputArray)
+);
+passwordCheckInput.addEventListener("focusout", () =>
+  activateButton(signupButton, inputArray)
+);
 
 /* 회원가입 버튼 클릭시 로그인 페이지로 이동 */
 const signupForm = document.querySelector(".signup-page .form-container");

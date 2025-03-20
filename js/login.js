@@ -1,4 +1,8 @@
-import { togglePasswordVisibility, redirectToPage } from "./common.js";
+import {
+  togglePasswordVisibility,
+  activateButton,
+  redirectToPage,
+} from "./common.js";
 /* email 에러 메시지 처리 */
 const emailInput = document.querySelector("#input-email");
 const wrongEmail = document.createElement("span");
@@ -57,22 +61,21 @@ passwordInput.addEventListener("input", wrongPasswordEvent);
 
 /* email, password에 유효한 값이 입력되면 로그인 페이지 버튼 활성화 */
 const loginButton = document.querySelector(".login-page .submit-button");
+const inputArray = [emailInput, passwordInput];
 loginButton.disabled = true;
-function activateLoginButton() {
-  if (
-    emailInput.classList.contains("done") &&
-    passwordInput.classList.contains("done")
-  ) {
-    loginButton.disabled = false;
-  } else {
-    loginButton.disabled = true;
-  }
-}
 
-emailInput.addEventListener("input", activateLoginButton);
-passwordInput.addEventListener("input", activateLoginButton);
-emailInput.addEventListener("focusout", activateLoginButton);
-passwordInput.addEventListener("focusout", activateLoginButton);
+emailInput.addEventListener("input", () =>
+  activateButton(loginButton, inputArray)
+);
+passwordInput.addEventListener("input", () =>
+  activateButton(loginButton, inputArray)
+);
+emailInput.addEventListener("focusout", () =>
+  activateButton(loginButton, inputArray)
+);
+passwordInput.addEventListener("focusout", () =>
+  activateButton(loginButton, inputArray)
+);
 
 /* 로그인 버튼 클릭시 items 페이지로 이동 */
 const loginForm = document.querySelector(".login-page .form-container");
