@@ -1,3 +1,5 @@
+import { togglePasswordVisibility } from "./common.js";
+
 /* email 에러 메시지 처리 */
 const emailInput = document.querySelector("#input-email");
 const wrongEmail = document.createElement("span");
@@ -142,14 +144,5 @@ signupForm.addEventListener("submit", function (event) {
 
 /* 눈모양 버튼 클릭시 */
 document.querySelectorAll(".visibility").forEach((button) => {
-  button.addEventListener("click", function () {
-    const passwordInput = this.previousElementSibling;
-    if (passwordInput.type === "password") {
-      passwordInput.type = "text";
-      this.classList.add("visible");
-    } else {
-      passwordInput.type = "password";
-      this.classList.remove("visible");
-    }
-  });
+  button.addEventListener("click", () => togglePasswordVisibility(button));
 });
