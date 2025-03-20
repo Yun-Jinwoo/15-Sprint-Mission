@@ -1,3 +1,21 @@
+/* 에러 메시지 처리 */
+function wrongInput(input, span, validateFunction) {
+  const errorMessage = validateFunction(input);
+  if (errorMessage) {
+    input.classList.add("warning");
+    input.classList.remove("done");
+    span.textContent = errorMessage;
+  } else {
+    input.classList.remove("warning");
+    input.classList.add("done");
+    span.textContent = "";
+  }
+  input.parentElement.appendChild(span);
+  if (span.textContent === "") {
+    input.parentElement.removeChild(span);
+  }
+}
+
 /* 눈모양 버튼 클릭시 비밀번호 보이기 / 가리기 */
 function togglePasswordVisibility(button) {
   const passwordInput = button.previousElementSibling;
@@ -25,4 +43,4 @@ function redirectToPage(event, redirectUrl) {
   window.location.href = redirectUrl;
 }
 
-export { togglePasswordVisibility, activateButton, redirectToPage };
+export { wrongInput, togglePasswordVisibility, activateButton, redirectToPage };

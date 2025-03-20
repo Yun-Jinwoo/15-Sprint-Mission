@@ -1,4 +1,5 @@
 import {
+  wrongInput,
   togglePasswordVisibility,
   activateButton,
   redirectToPage,
@@ -9,28 +10,20 @@ const emailInput = document.querySelector("#input-email");
 const wrongEmail = document.createElement("span");
 wrongEmail.classList.add("error-message");
 
-function wrongEmailEvent(event) {
-  if (event.target.value === "") {
-    event.target.classList.add("warning");
-    event.target.classList.remove("done");
-    wrongEmail.textContent = "이메일을 입력해주세요.";
-  } else if (!event.target.checkValidity()) {
-    event.target.classList.add("warning");
-    event.target.classList.remove("done");
-    wrongEmail.textContent = "잘못된 이메일 형식입니다.";
-  } else {
-    event.target.classList.remove("warning");
-    event.target.classList.add("done");
-    wrongEmail.textContent = "";
-  }
-  emailInput.parentElement.appendChild(wrongEmail);
-  if (wrongEmail.textContent === "") {
-    emailInput.parentElement.removeChild(wrongEmail);
+function validateEmail(input) {
+  if (input.value === "") {
+    return "이메일을 입력해주세요.";
+  } else if (!input.checkValidity()) {
+    return "잘못된 이메일 형식입니다.";
   }
 }
 
-emailInput.addEventListener("focusout", wrongEmailEvent);
-emailInput.addEventListener("input", wrongEmailEvent);
+emailInput.addEventListener("focusout", () =>
+  wrongInput(emailInput, wrongEmail, validateEmail)
+);
+emailInput.addEventListener("input", () =>
+  wrongInput(emailInput, wrongEmail, validateEmail)
+);
 
 /* nickname 에러 메시지 처리 */
 
@@ -38,52 +31,38 @@ const nicknameInput = document.querySelector("#input-nickname");
 const wrongNickname = document.createElement("span");
 wrongNickname.classList.add("error-message");
 
-function wrongNicknameEvent(event) {
-  if (event.target.value === "") {
-    event.target.classList.add("warning");
-    event.target.classList.remove("done");
-    wrongNickname.textContent = "닉네임을 입력해주세요.";
-  } else {
-    event.target.classList.remove("warning");
-    event.target.classList.add("done");
-    wrongNickname.textContent = "";
-  }
-  nicknameInput.parentElement.appendChild(wrongNickname);
-  if (wrongNickname.textContent === "") {
-    nicknameInput.parentElement.removeChild(wrongNickname);
+function validateNickname(input) {
+  if (input.value === "") {
+    return "닉네임을 입력해주세요.";
   }
 }
 
-nicknameInput.addEventListener("focusout", wrongNicknameEvent);
-nicknameInput.addEventListener("input", wrongNicknameEvent);
+nicknameInput.addEventListener("focusout", () =>
+  wrongInput(nicknameInput, wrongNickname, validateNickname)
+);
+nicknameInput.addEventListener("input", () =>
+  wrongInput(nicknameInput, wrongNickname, validateNickname)
+);
 
 /* password 에러 메시지 처리 */
 const passwordInput = document.querySelector("#input-password");
 const wrongPassword = document.createElement("span");
 wrongPassword.classList.add("error-message");
 
-function wrongPasswordEvent(event) {
-  if (event.target.value === "") {
-    event.target.classList.add("warning");
-    event.target.classList.remove("done");
-    wrongPassword.textContent = "비밀번호를 입력해주세요.";
-  } else if (event.target.value.length < 8) {
-    event.target.classList.add("warning");
-    event.target.classList.remove("done");
-    wrongPassword.textContent = "비밀번호를 8자 이상 입력해주세요.";
-  } else {
-    event.target.classList.remove("warning");
-    event.target.classList.add("done");
-    wrongPassword.textContent = "";
-  }
-  passwordInput.parentElement.appendChild(wrongPassword);
-  if (wrongPassword.textContent === "") {
-    passwordInput.parentElement.removeChild(wrongPassword);
+function validatePassword(input) {
+  if (input.value === "") {
+    return "비밀번호를 입력해주세요.";
+  } else if (input.value.length < 8) {
+    return "비밀번호를 8자 이상 입력해주세요.";
   }
 }
 
-passwordInput.addEventListener("focusout", wrongPasswordEvent);
-passwordInput.addEventListener("input", wrongPasswordEvent);
+passwordInput.addEventListener("focusout", () =>
+  wrongInput(passwordInput, wrongPassword, validatePassword)
+);
+passwordInput.addEventListener("input", () =>
+  wrongInput(passwordInput, wrongPassword, validatePassword)
+);
 
 /* password-check 에러 메시지 처리 */
 const passwordCheckInput = document.querySelector("#input-password-check");
