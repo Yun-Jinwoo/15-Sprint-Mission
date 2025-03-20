@@ -1,3 +1,4 @@
+/* email 에러 메시지 처리 */
 const emailInput = document.querySelector("#input-email");
 const wrongEmail = document.createElement("span");
 wrongEmail.classList.add("error-message");
@@ -24,6 +25,31 @@ function wrongEmailEvent(event) {
 
 emailInput.addEventListener("focusout", wrongEmailEvent);
 
+/* nickname 에러 메시지 처리 */
+
+const nicknameInput = document.querySelector("#input-nickname");
+const wrongNickname = document.createElement("span");
+wrongNickname.classList.add("error-message");
+
+function wrongNicknameEvent(event) {
+  if (event.target.value === "") {
+    event.target.classList.add("warning");
+    event.target.classList.remove("done");
+    wrongNickname.textContent = "닉네임을 입력해주세요.";
+  } else {
+    event.target.classList.remove("warning");
+    event.target.classList.add("done");
+    wrongNickname.textContent = "";
+  }
+  nicknameInput.parentElement.appendChild(wrongNickname);
+  if (wrongNickname.textContent === "") {
+    nicknameInput.parentElement.removeChild(wrongNickname);
+  }
+}
+
+nicknameInput.addEventListener("focusout", wrongNicknameEvent);
+
+/* password 에러 메시지 처리 */
 const passwordInput = document.querySelector("#input-password");
 const wrongPassword = document.createElement("span");
 wrongPassword.classList.add("error-message");
@@ -50,6 +76,7 @@ function wrongPasswordEvent(event) {
 
 passwordInput.addEventListener("focusout", wrongPasswordEvent);
 
+/* email, password에 유효한 값이 입력되면 로그인 페이지 버튼 활성화 */
 const loginButton = document.querySelector(".login-page .submit-button");
 loginButton.disabled = true;
 function activateButton() {
