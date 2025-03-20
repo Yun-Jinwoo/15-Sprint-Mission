@@ -124,3 +124,11 @@ emailInput.addEventListener("focusout", activateSignupButton);
 nicknameInput.addEventListener("focusout", activateSignupButton);
 passwordInput.addEventListener("focusout", activateSignupButton);
 passwordCheckInput.addEventListener("focusout", activateSignupButton);
+
+/* 회원가입 버튼 클릭시 로그인 페이지로 이동 */
+const signupForm = document.querySelector(".signup-page .form-container");
+
+signupForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  window.location.href = "/login.html";
+});
