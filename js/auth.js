@@ -76,6 +76,29 @@ function wrongPasswordEvent(event) {
 
 passwordInput.addEventListener("focusout", wrongPasswordEvent);
 
+/* password-check 에러 메시지 처리 */
+const passwordCheckInput = document.querySelector("#input-password-check");
+const wrongpasswordCheck = document.createElement("span");
+wrongpasswordCheck.classList.add("error-message");
+
+function wrongPasswordCheckEvent(event) {
+  if (event.target.value !== passwordInput.value) {
+    event.target.classList.add("warning");
+    event.target.classList.remove("done");
+    wrongpasswordCheck.textContent = "비밀번호가 일치하지 않습니다.";
+  } else {
+    event.target.classList.remove("warning");
+    event.target.classList.add("done");
+    wrongpasswordCheck.textContent = "";
+  }
+  passwordCheckInput.parentElement.appendChild(wrongpasswordCheck);
+  if (wrongpasswordCheck.textContent === "") {
+    passwordCheckInput.parentElement.removeChild(wrongpasswordCheck);
+  }
+}
+
+passwordCheckInput.addEventListener("focusout", wrongPasswordCheckEvent);
+
 /* email, password에 유효한 값이 입력되면 로그인 페이지 버튼 활성화 */
 const loginButton = document.querySelector(".login-page .submit-button");
 loginButton.disabled = true;
