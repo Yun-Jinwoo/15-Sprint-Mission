@@ -123,30 +123,17 @@ const inputArray = [
 ];
 signupButton.disabled = true;
 
-emailInput.addEventListener("input", () =>
-  activateButton(signupButton, inputArray)
-);
-nicknameInput.addEventListener("input", () =>
-  activateButton(signupButton, inputArray)
-);
-passwordInput.addEventListener("input", () =>
-  activateButton(signupButton, inputArray)
-);
-passwordCheckInput.addEventListener("input", () =>
-  activateButton(signupButton, inputArray)
-);
-emailInput.addEventListener("focusout", () =>
-  activateButton(signupButton, inputArray)
-);
-nicknameInput.addEventListener("focusout", () =>
-  activateButton(signupButton, inputArray)
-);
-passwordInput.addEventListener("focusout", () =>
-  activateButton(signupButton, inputArray)
-);
-passwordCheckInput.addEventListener("focusout", () =>
-  activateButton(signupButton, inputArray)
-);
+inputArray.forEach((input) => {
+  input.addEventListener("input", () =>
+    activateButton(signupButton, inputArray)
+  );
+});
+
+inputArray.forEach((input) => {
+  input.addEventListener("focusout", () =>
+    activateButton(signupButton, inputArray)
+  );
+});
 
 /* 회원가입 버튼 클릭시 로그인 페이지로 이동 */
 const signupForm = document.querySelector(".signup-page .form-container");

@@ -64,18 +64,17 @@ const loginButton = document.querySelector(".login-page .submit-button");
 const inputArray = [emailInput, passwordInput];
 loginButton.disabled = true;
 
-emailInput.addEventListener("input", () =>
-  activateButton(loginButton, inputArray)
-);
-passwordInput.addEventListener("input", () =>
-  activateButton(loginButton, inputArray)
-);
-emailInput.addEventListener("focusout", () =>
-  activateButton(loginButton, inputArray)
-);
-passwordInput.addEventListener("focusout", () =>
-  activateButton(loginButton, inputArray)
-);
+inputArray.forEach((input) => {
+  input.addEventListener("input", () =>
+    activateButton(loginButton, inputArray)
+  );
+});
+
+inputArray.forEach((input) => {
+  input.addEventListener("focusout", () =>
+    activateButton(loginButton, inputArray)
+  );
+});
 
 /* 로그인 버튼 클릭시 items 페이지로 이동 */
 const loginForm = document.querySelector(".login-page .form-container");
