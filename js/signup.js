@@ -99,25 +99,6 @@ function wrongPasswordCheckEvent(event) {
 
 passwordCheckInput.addEventListener("focusout", wrongPasswordCheckEvent);
 
-/* email, password에 유효한 값이 입력되면 로그인 페이지 버튼 활성화 */
-const loginButton = document.querySelector(".login-page .submit-button");
-loginButton.disabled = true;
-function activateLoginButton() {
-  if (
-    emailInput.classList.contains("done") &&
-    passwordInput.classList.contains("done")
-  ) {
-    loginButton.disabled = false;
-  } else {
-    loginButton.disabled = true;
-  }
-}
-
-emailInput.addEventListener("input", activateLoginButton);
-passwordInput.addEventListener("input", activateLoginButton);
-emailInput.addEventListener("focusout", activateLoginButton);
-passwordInput.addEventListener("focusout", activateLoginButton);
-
 /* email, nickname, password, password-check에 유효한 값이 입력되면 회원가입 페이지 버튼 활성화 */
 const signupButton = document.querySelector(".signup-page .submit-button");
 signupButton.disabled = true;
