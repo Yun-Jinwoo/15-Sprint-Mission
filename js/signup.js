@@ -81,14 +81,14 @@ const passwordCheckInput = document.querySelector("#input-password-check");
 const wrongpasswordCheck = document.createElement("span");
 wrongpasswordCheck.classList.add("error-message");
 
-function wrongPasswordCheckEvent(event) {
-  if (event.target.value !== passwordInput.value) {
-    event.target.classList.add("warning");
-    event.target.classList.remove("done");
+function wrongPasswordCheckEvent() {
+  if (passwordCheckInput.value !== passwordInput.value) {
+    passwordCheckInput.classList.add("warning");
+    passwordCheckInput.classList.remove("done");
     wrongpasswordCheck.textContent = "비밀번호가 일치하지 않습니다.";
   } else {
-    event.target.classList.remove("warning");
-    event.target.classList.add("done");
+    passwordCheckInput.classList.remove("warning");
+    passwordCheckInput.classList.add("done");
     wrongpasswordCheck.textContent = "";
   }
   passwordCheckInput.parentElement.appendChild(wrongpasswordCheck);
@@ -96,7 +96,8 @@ function wrongPasswordCheckEvent(event) {
     passwordCheckInput.parentElement.removeChild(wrongpasswordCheck);
   }
 }
-
+/* password가 변경되어도 즉시 password-check과 비교 */
+passwordInput.addEventListener("focusout", wrongPasswordCheckEvent);
 passwordCheckInput.addEventListener("focusout", wrongPasswordCheckEvent);
 
 /* email, nickname, password, password-check에 유효한 값이 입력되면 회원가입 페이지 버튼 활성화 */
