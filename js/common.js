@@ -16,7 +16,7 @@ function wrongInput(input, span, validateFunction) {
   }
 }
 
-/* 눈모양 버튼 클릭시 비밀번호 보이기 / 가리기 */
+/* 눈모양 버튼 클릭시 비밀번호 보이기 or 가리기 */
 function togglePasswordVisibility(button) {
   const passwordInput = button.previousElementSibling;
   if (passwordInput.type === "password") {
