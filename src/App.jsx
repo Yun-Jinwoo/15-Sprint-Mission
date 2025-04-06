@@ -1,7 +1,21 @@
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Market from "./pages/Market";
+import Community from "./pages/Community";
+import AddItem from "./pages/AddItem";
 
 function App() {
-  return <>React</>;
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/items" element={<Market />} />
+      <Route path="/boards" element={<Community />} />
+      <Route path="/additem" element={<AddItem />} />
+    </Routes>
+  );
 }
 
 export default App;
