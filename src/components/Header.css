@@ -1,0 +1,35 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 200px;
+  border-bottom: 1px solid #dfdfdf;
+  height: 70px;
+}
+
+.Header img {
+  height: 51px;
+}
+
+.Header .header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.Header .header-left .link-section a {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 21px 15px;
+  color: var(--gray600);
+}
+
+.Header .login-button {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray100);
+  background-color: var(--blue100);
+  padding: 12px 23px;
+  border-radius: 8px;
+  border: none;
+}
