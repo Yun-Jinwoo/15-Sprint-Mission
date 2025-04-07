@@ -1,5 +1,11 @@
+import Header from "../components/Header";
+
 const Market = () => {
-  return <div>Market</div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default Market;
