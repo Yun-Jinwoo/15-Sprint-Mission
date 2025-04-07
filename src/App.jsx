@@ -1,12 +1,12 @@
 import "./App.css";
 import "./base.css";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Market from "./pages/Market";
-import Community from "./pages/Community";
-import AddItem from "./pages/AddItem";
-import NotFound from "./pages/NotFound";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import Market from "./pages/Market/Market";
+import Community from "./pages/Community/Community";
+import AddItem from "./pages/AddItem/AddItem";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
