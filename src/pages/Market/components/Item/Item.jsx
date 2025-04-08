@@ -1,5 +1,5 @@
 import "./Item.css";
-import heart from "../../../assets/images/heart.svg";
+import heart from "/src/assets/images/heart.svg";
 const Item = ({ item }) => {
   const { images, name, description, price, favoriteCount } = item;
   return (

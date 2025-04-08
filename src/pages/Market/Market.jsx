@@ -1,5 +1,5 @@
 import Header from "../../components/Header";
-import BestItems from "./BestItems/BestItems";
+import BestItems from "./components/BestItems/BestItems";
 const Market = () => {
   return (
     <>
