@@ -1,14 +1,17 @@
 import "./Item.css";
 import heart from "../../../../../src/assets/images/heart.svg";
 import fallback from "../../../../../src/assets/images/fallback.png";
-const Item = ({ item }) => {
+const Item = ({ item, size }) => {
   const { images, name, description, price, favoriteCount } = item;
   return (
     <div className="Item">
       <img
         src={images && images.length > 0 ? images[0] : fallback}
         alt={name}
-        className="item-img"
+        className={`item-img size-${size}`}
+        onError={(e) => {
+          e.target.src = fallback;
+        }}
       />
       <div className="text-section">
         <p className="item-description">{description}</p>

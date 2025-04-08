@@ -20,7 +20,7 @@ const BestItems = () => {
         <p className="title">베스트 상품</p>
         <div className="item-list">
           {items.map((item) => {
-            return <Item key={item.id} item={item} />;
+            return <Item key={item.id} item={item} size="four" />;
           })}
         </div>
       </div>

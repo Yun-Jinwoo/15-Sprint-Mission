@@ -5,9 +5,17 @@
 }
 
 .Item .item-img {
+  border-radius: 16px;
+}
+
+.Item .size-four {
   width: 282px;
   height: 282px;
-  border-radius: 16px;
+}
+
+.Item .size-five {
+  width: 221px;
+  height: 221px;
 }
 
 .Item .text-section {
