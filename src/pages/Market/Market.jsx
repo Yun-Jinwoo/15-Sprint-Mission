@@ -6,7 +6,7 @@ import Pagination from "./components/Pagination/Pagination";
 const Market = () => {
   return (
     <>
-      <Header />
+      <Header location="market" />
       <BestItems />
       <AllItems />
       <Pagination />
