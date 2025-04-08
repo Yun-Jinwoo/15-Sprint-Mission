@@ -3,9 +3,7 @@ import { getProducts } from "../../../../../src/api.js";
 import Item from "../Item/Item";
 import "./AllItems.css";
 
-import search from "/src/assets/images/search.svg";
-import arrow_left from "/src/assets/images/arrow_left.svg";
-import arrow_right from "/src/assets/images/arrow_right.svg";
+import search from "../../../../assets/images/search.svg";
 
 const AllItems = () => {
   const [items, setItems] = useState([]);
@@ -43,19 +41,6 @@ const AllItems = () => {
           {items.map((item) => {
             return <Item key={item.id} item={item} size="five" />;
           })}
-        </div>
-        <div className="pagination">
-          <button>
-            <img src={arrow_left} alt="처음으로" />
-          </button>
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button>4</button>
-          <button>5</button>
-          <button>
-            <img src={arrow_right} alt="끝으로" />
-          </button>
         </div>
       </div>
     </>
