@@ -1,10 +1,15 @@
 import "./Item.css";
-import heart from "/src/assets/images/heart.svg";
+import heart from "../../../../../src/assets/images/heart.svg";
+import fallback from "../../../../../src/assets/images/fallback.png";
 const Item = ({ item }) => {
   const { images, name, description, price, favoriteCount } = item;
   return (
     <div className="Item">
-      <img src={images[0]} alt={name} className="item-img" />
+      <img
+        src={images && images.length > 0 ? images[0] : fallback}
+        alt={name}
+        className="item-img"
+      />
       <div className="text-section">
         <p className="item-description">{description}</p>
         <p className="item-price">{price}원</p>
