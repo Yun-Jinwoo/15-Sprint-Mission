@@ -22,25 +22,26 @@ const AllItems = () => {
   return (
     <>
       <div className="AllItems">
-        <p className="title">전체 상품</p>
-
-        <div className="menu_bar">
-          <div className="search-container">
-            <img src={search} alt="돋보기 아이콘" />
-            <input
-              className="search-input"
-              placeholder="검색할 상품을 입력해주세요"
-            />
+        <div className="top-section">
+          <p className="title">전체 상품</p>
+          <div className="menu-bar">
+            <div className="search-container">
+              <img src={search} alt="돋보기 아이콘" />
+              <input
+                className="search-input"
+                placeholder="검색할 상품을 입력해주세요"
+              />
+            </div>
+            <button className="register">상품 등록하기</button>
+            <select className="orderby">
+              <option value="recent">최신순</option>
+              <option value="favorite">좋아요순</option>
+            </select>
           </div>
-          <button className="register">상품 등록하기</button>
-          <select>
-            <option value="">최신순</option>
-            <option value="">좋아요순</option>
-          </select>
         </div>
         <div className="items-container">
           {items.map((item) => {
-            return <Item key={item.id} item={item} />;
+            return <Item key={item.id} item={item} size="five" />;
           })}
         </div>
         <div className="pagination">
