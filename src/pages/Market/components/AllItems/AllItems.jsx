@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { getProducts } from "../../../../../src/api.js";
 import Item from "../Item/Item";
 import Pagination from "../Pagination/Pagination.jsx";
@@ -11,6 +12,11 @@ const AllItems = () => {
   const [totalCount, setTotalCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [orderBy, setOrderBy] = useState("recent");
+
+  const nav = useNavigate();
+  const onClickButton = () => {
+    nav("/additem");
+  };
 
   useEffect(() => {
     async function getItems() {
@@ -39,7 +45,9 @@ const AllItems = () => {
                 placeholder="검색할 상품을 입력해주세요"
               />
             </div>
-            <button className="register">상품 등록하기</button>
+            <button className="register" onClick={onClickButton}>
+              상품 등록하기
+            </button>
             <select
               className="orderby"
               onChange={(e) => {
