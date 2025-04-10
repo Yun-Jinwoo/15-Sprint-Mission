@@ -1,5 +1,11 @@
+import Header from "../../components/Header";
+
 const Community = () => {
-  return <div>Community</div>;
+  return (
+    <>
+      <Header location="community" />
+    </>
+  );
 };
 
 export default Community;
