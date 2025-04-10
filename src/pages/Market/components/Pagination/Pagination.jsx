@@ -10,6 +10,12 @@ const Pagination = ({ currentPage, setCurrentPage, totalCount, pageSize }) => {
   const pageNumArr = new Array(totalPages).fill(0).map((_, index) => index + 1);
   const currentGroup = pageNumArr.slice(groupStart - 1, groupStart + 4);
 
+  // 정렬 변경시 1페이지로 돌아가지 않는 경우 대비
+  useEffect(() => {
+    const newGroupStart = Math.floor((currentPage - 1) / 5) * 5 + 1;
+    setGroupStart(newGroupStart);
+  }, [currentPage]);
+
   const changePage = (page) => {
     if (page < 1 || page > totalPages) return;
     setCurrentPage(page);
