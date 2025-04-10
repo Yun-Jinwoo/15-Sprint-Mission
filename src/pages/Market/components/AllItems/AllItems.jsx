@@ -9,16 +9,21 @@ import search from "../../../../assets/images/search.svg";
 const AllItems = () => {
   const [items, setItems] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     async function getItems() {
-      const data = await getProducts({ pageSize: 10, orderBy: "recent" });
+      const data = await getProducts({
+        page: currentPage,
+        pageSize: 10,
+        orderBy: "recent",
+      });
       setItems(data.list);
       setTotalCount(data.totalCount);
     }
 
     getItems();
-  }, []);
+  }, [currentPage]);
 
   return (
     <>
@@ -45,7 +50,12 @@ const AllItems = () => {
             return <Item key={item.id} item={item} size="five" />;
           })}
         </div>
-        <Pagination totalCount={totalCount} pageSize={10} />
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalCount={totalCount}
+          pageSize={10}
+        />
       </div>
     </>
   );

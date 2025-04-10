@@ -4,8 +4,7 @@ import arrow_left from "../../../../assets/images/arrow_left.svg";
 import arrow_right from "../../../../assets/images/arrow_right.svg";
 import "./Pagination.css";
 
-const Pagination = ({ totalCount, pageSize }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+const Pagination = ({ currentPage, setCurrentPage, totalCount, pageSize }) => {
   const [groupStart, setGroupStart] = useState(1); // 페이지를 5개씩 보여줄 때, 가장 첫 페이지 번호
   const totalPages = Math.ceil(totalCount / pageSize);
   const pageNumArr = new Array(totalPages).fill(0).map((_, index) => index + 1);
