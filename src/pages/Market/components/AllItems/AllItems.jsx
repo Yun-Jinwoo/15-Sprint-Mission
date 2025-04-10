@@ -1,17 +1,20 @@
 import { useState, useEffect } from "react";
 import { getProducts } from "../../../../../src/api.js";
 import Item from "../Item/Item";
+import Pagination from "../Pagination/Pagination.jsx";
 import "./AllItems.css";
 
 import search from "../../../../assets/images/search.svg";
 
 const AllItems = () => {
   const [items, setItems] = useState([]);
+  const [totalCount, setTotalCount] = useState(0);
 
   useEffect(() => {
     async function getItems() {
       const data = await getProducts({ pageSize: 10, orderBy: "recent" });
       setItems(data.list);
+      setTotalCount(data.totalCount);
     }
 
     getItems();
@@ -42,6 +45,7 @@ const AllItems = () => {
             return <Item key={item.id} item={item} size="five" />;
           })}
         </div>
+        <Pagination totalCount={totalCount} pageSize={10} />
       </div>
     </>
   );
