@@ -12,6 +12,7 @@ const AllItems = () => {
   const [totalCount, setTotalCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [orderBy, setOrderBy] = useState("recent");
+  const [searchKeyword, setSearchKeyword] = useState("");
 
   const nav = useNavigate();
   const onClickButton = () => {
@@ -24,13 +25,14 @@ const AllItems = () => {
         page: currentPage,
         pageSize: 10,
         orderBy: orderBy,
+        keyword: searchKeyword,
       });
       setItems(data.list);
       setTotalCount(data.totalCount);
     }
 
     getItems();
-  }, [currentPage, orderBy]);
+  }, [currentPage, orderBy, searchKeyword]);
 
   return (
     <>
@@ -43,6 +45,10 @@ const AllItems = () => {
               <input
                 className="search-input"
                 placeholder="검색할 상품을 입력해주세요"
+                onChange={(e) => {
+                  setSearchKeyword(e.target.value);
+                  setCurrentPage(1);
+                }}
               />
             </div>
             <button className="register" onClick={onClickButton}>
