@@ -10,20 +10,21 @@ const AllItems = () => {
   const [items, setItems] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [orderBy, setOrderBy] = useState("recent");
 
   useEffect(() => {
     async function getItems() {
       const data = await getProducts({
         page: currentPage,
         pageSize: 10,
-        orderBy: "recent",
+        orderBy: orderBy,
       });
       setItems(data.list);
       setTotalCount(data.totalCount);
     }
 
     getItems();
-  }, [currentPage]);
+  }, [currentPage, orderBy]);
 
   return (
     <>
@@ -39,7 +40,13 @@ const AllItems = () => {
               />
             </div>
             <button className="register">상품 등록하기</button>
-            <select className="orderby">
+            <select
+              className="orderby"
+              onChange={(e) => {
+                setOrderBy(e.target.value);
+                setCurrentPage(1);
+              }}
+            >
               <option value="recent">최신순</option>
               <option value="favorite">좋아요순</option>
             </select>
