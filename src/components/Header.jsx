@@ -1,4 +1,5 @@
 import logo from "../assets/images/logo.png";
+import logoMobile from "../assets/images/logo-mobile.png";
 import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 
@@ -12,7 +13,10 @@ const Header = ({ location }) => {
       <header className="Header">
         <div className="header-left">
           <Link to={"/"}>
-            <img src={logo} alt="판다마켓 로고" />
+            <picture>
+              <source srcset={logoMobile} media="(max-width: 767px)" />
+              <img class="logo" src={logo} alt="판다마켓 로고 이미지" />
+            </picture>
           </Link>
           <div className="link-section">
             <Link

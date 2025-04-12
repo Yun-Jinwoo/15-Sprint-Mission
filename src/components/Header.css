@@ -14,7 +14,7 @@
 .Header .header-left {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 32px;
 }
 
 .Header .header-left .link-section a {
@@ -36,4 +36,33 @@
 
 .Header .header-left .link-section .active {
   color: var(--blue100);
+}
+
+@media (max-width: 1199px) {
+  .Header {
+    padding: 0 24px;
+  }
+
+  .Header .header-left {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .Header {
+    padding: 0 16px;
+  }
+
+  .Header .header-left {
+    gap: 4px;
+  }
+
+  .Header img {
+    height: 40px;
+  }
+
+  .Header .header-left .link-section a {
+    font-size: 16px;
+    padding: 25px 4px;
+  }
 }
