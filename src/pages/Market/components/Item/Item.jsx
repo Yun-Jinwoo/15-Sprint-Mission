@@ -4,7 +4,7 @@ import fallback from "../../../../../src/assets/images/fallback.png";
 const Item = ({ item, size }) => {
   const { images, name, price, favoriteCount } = item;
   return (
-    <div className={`Item size-${size}`}>
+    <div className={`Item ${size}`}>
       <img
         src={images && images.length > 0 ? images[0] : fallback}
         alt={name}

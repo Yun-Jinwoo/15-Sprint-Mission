@@ -4,12 +4,16 @@
   gap: 16px;
 }
 
-.Item.size-four {
+.Item.best-four {
   width: 282px;
 }
 
-.Item.size-five {
-  width: 221px;
+.Item.best-two {
+  max-width: calc((100% - 48px - 10px) / 2);
+}
+
+.Item.best-one {
+  max-width: calc(100% - 32px);
 }
 
 .Item .item-img {
