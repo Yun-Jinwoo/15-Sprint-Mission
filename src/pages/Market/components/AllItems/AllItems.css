@@ -45,6 +45,11 @@
   line-height: 26px;
 }
 
+.AllItems .search-input:focus {
+  outline: none;
+  border: 2px solid var(--blue100);
+}
+
 .AllItems .search-container > img {
   position: absolute;
   top: 50%;
