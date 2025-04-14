@@ -20,7 +20,8 @@
 
 @media (max-width: 1199px) {
   .BestItems {
-    margin: 24px 24px 40px;
+    margin: 24px 0 40px;
+    padding: 0 24px;
   }
 
   .BestItems .item-list {
@@ -30,6 +31,7 @@
 
 @media (max-width: 767px) {
   .BestItems {
-    margin: 17px 16px 24px;
+    margin: 17px 0 24px;
+    padding: 16px;
   }
 }
