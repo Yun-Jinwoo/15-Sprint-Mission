@@ -1,4 +1,5 @@
 .Item {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -9,11 +10,11 @@
 }
 
 .Item.best-two {
-  max-width: calc((100% - 48px - 10px) / 2);
+  max-width: calc((100% - 10px) / 2);
 }
 
 .Item.best-one {
-  max-width: calc(100% - 32px);
+  max-width: calc(100%);
 }
 
 .Item .item-img {

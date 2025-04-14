@@ -7,23 +7,40 @@ import "./AllItems.css";
 
 import search from "../../../../assets/images/search.svg";
 
-const AllItems = () => {
+const AllItems = ({ deviceType }) => {
   const [items, setItems] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [orderBy, setOrderBy] = useState("recent");
   const [searchKeyword, setSearchKeyword] = useState("");
+  const [pageSize, setPageSize] = useState(10);
 
   const nav = useNavigate();
   const onClickButton = () => {
     nav("/additem");
   };
 
+  const getItemSize = () => {
+    if (deviceType === "mobile") return "all-four";
+    if (deviceType === "tablet") return "all-six";
+    return "all-ten";
+  };
+
+  useEffect(() => {
+    if (deviceType === "mobile") {
+      setPageSize(4);
+    } else if (deviceType === "tablet") {
+      setPageSize(6);
+    } else {
+      setPageSize(10);
+    }
+  }, [deviceType]);
+
   useEffect(() => {
     async function getItems() {
       const data = await getProducts({
         page: currentPage,
-        pageSize: 10,
+        pageSize,
         orderBy: orderBy,
         keyword: searchKeyword,
       });
@@ -32,7 +49,7 @@ const AllItems = () => {
     }
 
     getItems();
-  }, [currentPage, orderBy, searchKeyword]);
+  }, [currentPage, orderBy, searchKeyword, pageSize]);
 
   return (
     <>
@@ -68,14 +85,14 @@ const AllItems = () => {
         </div>
         <div className="items-container">
           {items.map((item) => {
-            return <Item key={item.id} item={item} size="five" />;
+            return <Item key={item.id} item={item} size={getItemSize()} />;
           })}
         </div>
         <Pagination
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           totalCount={totalCount}
-          pageSize={10}
+          pageSize={pageSize}
         />
       </div>
     </>
