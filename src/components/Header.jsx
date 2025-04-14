@@ -13,10 +13,12 @@ const Header = ({ location }) => {
       <header className="Header">
         <div className="header-left">
           <Link to={"/"}>
-            <picture>
-              <source srcset={logoMobile} media="(max-width: 767px)" />
-              <img class="logo" src={logo} alt="판다마켓 로고 이미지" />
-            </picture>
+            <img
+              className="logo-mobile"
+              src={logoMobile}
+              alt="판다마켓 로고 이미지 (모바일)"
+            />
+            <img className="logo" src={logo} alt="판다마켓 로고 이미지" />
           </Link>
           <div className="link-section">
             <Link
