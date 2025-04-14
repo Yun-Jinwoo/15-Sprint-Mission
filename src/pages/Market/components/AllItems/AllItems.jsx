@@ -56,31 +56,65 @@ const AllItems = ({ deviceType }) => {
       <div className="AllItems">
         <div className="top-section">
           <p className="title">전체 상품</p>
-          <div className="menu-bar">
-            <div className="search-container">
-              <img src={search} alt="돋보기 아이콘" />
-              <input
-                className="search-input"
-                placeholder="검색할 상품을 입력해주세요"
-                onChange={(e) => {
-                  setSearchKeyword(e.target.value);
-                  setCurrentPage(1);
-                }}
-              />
-            </div>
-            <button className="register" onClick={onClickButton}>
-              상품 등록하기
-            </button>
-            <select
-              className="orderby"
+          <button className="register" onClick={onClickButton}>
+            상품 등록하기
+          </button>
+          <div className="search-container">
+            <img src={search} alt="돋보기 아이콘" />
+            <input
+              className="search-input"
+              placeholder="검색할 상품을 입력해주세요"
               onChange={(e) => {
-                setOrderBy(e.target.value);
+                setSearchKeyword(e.target.value);
                 setCurrentPage(1);
               }}
-            >
-              <option value="recent">최신순</option>
-              <option value="favorite">좋아요순</option>
-            </select>
+            />
+          </div>
+          <select
+            className="orderby"
+            onChange={(e) => {
+              setOrderBy(e.target.value);
+              setCurrentPage(1);
+            }}
+          >
+            <option value="recent">최신순</option>
+            <option value="favorite">좋아요순</option>
+          </select>
+          <div
+            className="orderby-mobile"
+            onClick={() => {
+              document
+                .querySelector(".orderby-dropdown")
+                .classList.toggle("show");
+            }}
+          >
+            <button className="orderby-icon"></button>
+            <div className="orderby-dropdown">
+              <div
+                className="first-option"
+                onClick={() => {
+                  setOrderBy("recent");
+                  setCurrentPage(1);
+                  document
+                    .querySelector(".orderby-dropdown")
+                    .classList.toggle("show");
+                }}
+              >
+                최신순
+              </div>
+              <div
+                className="second-option"
+                onClick={() => {
+                  setOrderBy("favorite");
+                  setCurrentPage(1);
+                  document
+                    .querySelector(".orderby-dropdown")
+                    .classList.toggle("show");
+                }}
+              >
+                좋아요순
+              </div>
+            </div>
           </div>
         </div>
         <div className="items-container">
