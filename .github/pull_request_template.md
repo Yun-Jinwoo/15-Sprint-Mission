@@ -35,7 +35,32 @@
 
 ## 스크린샷
 
-![image](이미지url)
+<details>
+<summary>🖥️ 데스크탑 이미지</summary>
+<div markdown="1">
+
+![데스크탑](desktop-img.png)
+
+</div>
+</details>
+
+<details>
+<summary>📲 태블릿 이미지</summary>
+<div markdown="1">
+
+![태블릿](tablet-img.png)
+
+</div>
+</details>
+
+<details>
+<summary>📱 모바일 이미지</summary>
+<div markdown="1">
+
+![모바일](mobile-img.png)
+
+</div>
+</details>
 
 ## 멘토에게
 
@@ -117,3 +142,8 @@ const Header = ({ location }) => {
 - 작성하다보니, App.css와 index.css가 빈 파일로 남게 되었는데, 이부분은 딱히 작성할게 없으면 비워두는 경우도 있나요??
 
   그리고, 공통 스타일을 base.css로 묶어놨는데, 굳이 base.css 말고 App.css에 넣는게 나을까요??
+
+- netlify로 배포 후 살펴보던 중, /items 에서 새로고침을 하면 Page not found 라는 오류가 나오는데, 왜 그런 걸까요? 메인 페이지를 입력하면 다시 잘 접속됩니다.
+  ![Page not found](image.png)
+
+- netlify로 배포 후 살펴보던 중, 이미지가 늦게 로딩되는 몇가지 상품들이 있는데, 왜 그런 것이며 어떻게 대처할 수 있을까요?
