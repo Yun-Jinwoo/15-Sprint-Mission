@@ -98,7 +98,6 @@
 }
 
 .orderby-dropdown {
-  display: none;
   position: absolute;
   background: white;
   border: 1px solid var(--gray200);
@@ -121,10 +120,6 @@
 
 .orderby-dropdown .first-option {
   border-bottom: 1px solid var(--gray200);
-}
-
-.orderby-dropdown.show {
-  display: block;
 }
 
 .AllItems .items-container {
