@@ -51,6 +51,12 @@ const AllItems = ({ deviceType }) => {
     getItems();
   }, [currentPage, orderBy, searchKeyword, pageSize]);
 
+  const handleOrderChange = (orderType) => {
+    setOrderBy(orderType);
+    setCurrentPage(1);
+    document.querySelector(".orderby-dropdown").classList.toggle("show");
+  };
+
   return (
     <>
       <div className="AllItems">
@@ -84,25 +90,13 @@ const AllItems = ({ deviceType }) => {
             <div className="orderby-dropdown">
               <div
                 className="first-option"
-                onClick={() => {
-                  setOrderBy("recent");
-                  setCurrentPage(1);
-                  document
-                    .querySelector(".orderby-dropdown")
-                    .classList.toggle("show");
-                }}
+                onClick={() => handleOrderChange("recent")}
               >
                 최신순
               </div>
               <div
                 className="second-option"
-                onClick={() => {
-                  setOrderBy("favorite");
-                  setCurrentPage(1);
-                  document
-                    .querySelector(".orderby-dropdown")
-                    .classList.toggle("show");
-                }}
+                onClick={() => handleOrderChange("favorite")}
               >
                 좋아요순
               </div>
