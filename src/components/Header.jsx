@@ -1,6 +1,6 @@
 import logo from "../assets/images/logo.png";
 import logoMobile from "../assets/images/logo-mobile.png";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -8,6 +8,9 @@ const Header = () => {
   const onClickButton = () => {
     nav("/login");
   };
+  const location = useLocation();
+  const isItemsPage =
+    location.pathname.startsWith("/items") || location.pathname === "/additem";
 
   return (
     <>
@@ -28,10 +31,7 @@ const Header = () => {
             >
               자유게시판
             </NavLink>
-            <NavLink
-              to="/items"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
+            <NavLink to="/items" className={isItemsPage ? "active" : ""}>
               중고마켓
             </NavLink>
           </div>

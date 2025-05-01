@@ -1,5 +1,10 @@
+import Header from "../../components/Header";
 const AddItem = () => {
-  return <div>AddItem</div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default AddItem;
