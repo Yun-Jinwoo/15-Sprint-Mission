@@ -5,19 +5,8 @@
   gap: 16px;
 }
 
-.Item.best-four {
-  width: 282px;
-}
-
-.Item.best-two {
-  max-width: calc((100% - 10px) / 2);
-}
-
-.Item.best-one {
-  max-width: calc(100%);
-}
-
 .Item .item-img {
+  width: 100%;
   border-radius: 16px;
   aspect-ratio: 1 / 1;
   object-fit: cover;

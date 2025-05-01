@@ -119,7 +119,7 @@ const AllItems = ({ deviceType }) => {
         </div>
         <div className="items-container">
           {items.map((item) => {
-            return <Item key={item.id} item={item} size={getItemSize()} />;
+            return <Item key={item.id} item={item} />;
           })}
         </div>
         <Pagination

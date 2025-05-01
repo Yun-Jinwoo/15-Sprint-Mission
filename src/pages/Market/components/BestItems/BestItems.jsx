@@ -32,10 +32,10 @@ const BestItems = ({ deviceType }) => {
     <>
       <div className="BestItems">
         <p className="title">베스트 상품</p>
-        <div className="item-list">
-          {items.map((item) => {
-            return <Item key={item.id} item={item} size={getItemSize()} />;
-          })}
+        <div className={`item-list ${getItemSize()}`}>
+          {items.map((item) => (
+            <Item key={item.id} item={item} />
+          ))}
         </div>
       </div>
     </>
