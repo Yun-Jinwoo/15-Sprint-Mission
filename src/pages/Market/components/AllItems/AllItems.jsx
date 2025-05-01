@@ -70,24 +70,16 @@ const AllItems = ({ deviceType }) => {
               }}
             />
           </div>
-          <select
-            className="orderby"
-            onChange={(e) => {
-              setOrderBy(e.target.value);
-              setCurrentPage(1);
-            }}
-          >
-            <option value="recent">최신순</option>
-            <option value="favorite">좋아요순</option>
-          </select>
+
           <div
-            className="orderby-mobile"
+            className="orderby"
             onClick={() => {
               document
                 .querySelector(".orderby-dropdown")
                 .classList.toggle("show");
             }}
           >
+            <p>{orderBy === "recent" ? "최신순" : "좋아요순"}</p>
             <button className="orderby-icon"></button>
             <div className="orderby-dropdown">
               <div
