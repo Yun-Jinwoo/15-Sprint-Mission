@@ -15,6 +15,7 @@ const AllItems = ({ deviceType }) => {
   const [orderBy, setOrderBy] = useState("recent");
   const [searchKeyword, setSearchKeyword] = useState("");
   const [pageSize, setPageSize] = useState(10);
+  const [loading, setLoading] = useState(true);
   const dropdownRef = useRef(null);
   const [showDropdown, setShowDropdown] = useDetectClose(dropdownRef);
 
@@ -49,6 +50,7 @@ const AllItems = ({ deviceType }) => {
       });
       setItems(data.list);
       setTotalCount(data.totalCount);
+      setLoading(false);
     }
 
     getItems();
@@ -108,9 +110,11 @@ const AllItems = ({ deviceType }) => {
           </div>
         </div>
         <div className="items-container">
-          {items.map((item) => {
-            return <Item key={item.id} item={item} />;
-          })}
+          {loading
+            ? Array.from({ length: pageSize }).map((_, idx) => (
+                <Item key={idx} isLoading={true} />
+              ))
+            : items.map((item) => <Item key={item.id} item={item} />)}
         </div>
         <Pagination
           currentPage={currentPage}

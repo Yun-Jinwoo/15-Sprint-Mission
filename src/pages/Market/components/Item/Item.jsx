@@ -1,18 +1,40 @@
+import { useState } from "react";
 import "./Item.css";
 import heart from "../../../../../src/assets/images/heart.svg";
 import fallback from "../../../../../src/assets/images/fallback.png";
-const Item = ({ item }) => {
+const Item = ({ item, isLoading = false }) => {
+  if (isLoading) {
+    return (
+      <div className="Item item-skeleton">
+        <div className="skeleton-image" />
+        <div className="text-section">
+          <div className="skeleton-text name" />
+          <div className="skeleton-text price" />
+          <div className="skeleton-text favorite" />
+        </div>
+      </div>
+    );
+  }
+
   const { images, name, price, favoriteCount } = item;
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const imageSrc = images && images.length > 0 ? images[0] : fallback;
   return (
     <div className="Item">
-      <img
-        src={images && images.length > 0 ? images[0] : fallback}
-        alt={name}
-        className="item-img"
-        onError={(e) => {
-          e.target.src = fallback;
-        }}
-      />
+      <div className="image-wrapper">
+        {!imageLoaded && <div className="image-skeleton" />}
+        <img
+          src={imageSrc}
+          alt={name}
+          className={`item-img ${imageLoaded ? "visible" : "hidden"}`}
+          onLoad={() => setImageLoaded(true)}
+          onError={(e) => {
+            e.target.src = fallback;
+            setImageLoaded(true);
+          }}
+        />
+      </div>
       <div className="text-section">
         <p className="item-name">{name}</p>
         <p className="item-price">{price.toLocaleString()}원</p>
