@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import "./AddItem.css";
@@ -12,6 +12,7 @@ const AddItem = () => {
   const [price, setPrice] = useState("");
   const [tag, setTag] = useState("");
   const [tagList, setTagList] = useState([]);
+  const priceRef = useRef(null);
   const nav = useNavigate();
 
   function handleImageUpload(e) {
@@ -36,6 +37,9 @@ const AddItem = () => {
 
   function handleChange(e, input) {
     const value = e.target.value;
+    const selectionStart = e.target.selectionStart;
+    const selectionEnd = e.target.selectionEnd;
+
     if (input === "name") {
       setName(value);
     } else if (input === "description") {
@@ -44,7 +48,18 @@ const AddItem = () => {
       const numberValue = value.replace(/[^0-9]/g, "");
 
       if (numberValue) {
-        setPrice(Number(numberValue).toLocaleString());
+        const newPrice = Number(numberValue).toLocaleString();
+        setPrice(newPrice);
+        // 커서 위치 조정
+        setTimeout(() => {
+          if (priceRef.current) {
+            priceRef.current.selectionStart =
+              selectionStart + (newPrice.length - value.length);
+            priceRef.current.selectionEnd =
+              selectionStart + (newPrice.length - value.length);
+            priceRef.current.focus();
+          }
+        }, 0);
       } else {
         setPrice("");
       }
@@ -153,6 +168,7 @@ const AddItem = () => {
               placeholder="판매 가격을 입력해주세요"
               onChange={(e) => handleChange(e, "price")}
               value={price}
+              ref={priceRef}
             />
           </label>
           <section className="tag-section">
