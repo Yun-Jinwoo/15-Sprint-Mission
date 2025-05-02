@@ -1,7 +1,7 @@
 .add-item {
   display: flex;
   flex-direction: column;
-  margin: 24px auto;
+  margin: 24px auto 69px;
   max-width: 1200px;
   gap: 24px;
 }
@@ -162,4 +162,24 @@
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 1199px) {
+  .add-item {
+    margin: 16px 24px;
+  }
+
+  .info-section {
+    gap: 24px;
+  }
+
+  .upload-section {
+    gap: 10px;
+  }
+
+  .upload-button,
+  .image-uploaded {
+    width: 168px;
+    height: 168px;
+  }
 }
