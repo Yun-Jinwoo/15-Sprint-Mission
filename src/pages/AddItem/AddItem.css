@@ -1,0 +1,146 @@
+.add-item {
+  display: flex;
+  flex-direction: column;
+  margin: 24px auto;
+  max-width: 1200px;
+  gap: 24px;
+}
+
+.register {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.register button {
+  padding: 12px 23px;
+  background-color: var(--gray400);
+  color: var(--gray100);
+  border: none;
+  border-radius: 8px;
+}
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.image-section,
+.name-section,
+.description-section,
+.price-section,
+.tag-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.upload-section {
+  display: flex;
+  gap: 24px;
+}
+
+.upload-button {
+  width: 282px;
+  height: 282px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background-color: var(--gray200);
+  cursor: pointer;
+}
+
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.image-upload span {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--gray400);
+}
+
+.image-uploaded {
+  width: 282px;
+  height: 282px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-uploaded img {
+  width: 100%;
+}
+
+.image-uploaded .delete-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.name-input,
+.description-input,
+.price-input,
+.tag-input {
+  height: 56px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--gray100);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.description-input {
+  height: 282px;
+  resize: none;
+  white-space: pre-wrap;
+  letter-spacing: -0.7px; /* textarea와 input의 간격 차이 때문에 추가 */
+}
+
+.show-tag {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tag-list ul {
+  display: flex;
+  gap: 12px;
+}
+
+.tag-list li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  background-color: var(--gray100);
+  border-radius: 26px;
+  height: 36px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.delete-button {
+  background-image: url(../../assets/images/button_x.svg);
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
