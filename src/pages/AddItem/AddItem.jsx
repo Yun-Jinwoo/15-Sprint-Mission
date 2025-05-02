@@ -38,7 +38,6 @@ const AddItem = () => {
   function handleChange(e, input) {
     const value = e.target.value;
     const selectionStart = e.target.selectionStart;
-    const selectionEnd = e.target.selectionEnd;
 
     if (input === "name") {
       setName(value);
