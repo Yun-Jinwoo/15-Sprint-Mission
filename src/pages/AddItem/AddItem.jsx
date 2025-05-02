@@ -78,8 +78,8 @@ const AddItem = () => {
   return (
     <>
       <Header />
-      <div className="add-item">
-        <div className="register">
+      <section className="add-item">
+        <header className="register">
           상품 등록하기
           <button
             disabled={
@@ -92,11 +92,11 @@ const AddItem = () => {
           >
             등록
           </button>
-        </div>
-        <div className={`info-section ${uploadError ? "size-down" : ""}`}>
-          <div className="image-section">
+        </header>
+        <section className={`info-section ${uploadError ? "size-down" : ""}`}>
+          <section className="image-section">
             상품 이미지
-            <div className="upload-section">
+            <section className="upload-section">
               <label
                 htmlFor="upload-input"
                 className="upload-button"
@@ -123,12 +123,12 @@ const AddItem = () => {
                   />
                 </div>
               )}
-            </div>
+            </section>
             <div className={`error-message ${uploadError ? "" : "hidden"}`}>
               *이미지 등록은 최대 1개까지 가능합니다.
             </div>
-          </div>
-          <div className="name-section">
+          </section>
+          <label className="name-section">
             상품명
             <input
               className="name-input"
@@ -136,8 +136,8 @@ const AddItem = () => {
               onChange={(e) => handleChange(e, "name")}
               value={name}
             />
-          </div>
-          <div className="description-section">
+          </label>
+          <label className="description-section">
             상품 소개
             <textarea
               className="description-input"
@@ -145,8 +145,8 @@ const AddItem = () => {
               onChange={(e) => handleChange(e, "description")}
               value={description}
             />
-          </div>
-          <div className="price-section">
+          </label>
+          <label className="price-section">
             판매가격
             <input
               className="price-input"
@@ -154,8 +154,8 @@ const AddItem = () => {
               onChange={(e) => handleChange(e, "price")}
               value={price}
             />
-          </div>
-          <div className="tag-section">
+          </label>
+          <section className="tag-section">
             태그
             <div className="show-tag">
               <input
@@ -181,9 +181,9 @@ const AddItem = () => {
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </section>
+        </section>
+      </section>
     </>
   );
 };
