@@ -169,7 +169,7 @@ const AddItem = () => {
                 <ul>
                   {tagList.map((tag, index) => (
                     <li key={index}>
-                      {tag}
+                      #{tag}
                       <button
                         className="delete-button"
                         onClick={() => {
