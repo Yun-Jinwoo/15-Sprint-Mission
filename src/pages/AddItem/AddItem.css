@@ -167,6 +167,12 @@
   display: none;
 }
 
+@media (max-width: 1248px) {
+  .add-item {
+    margin: 24px 24px 69px;
+  }
+}
+
 @media (max-width: 1199px) {
   .add-item {
     margin: 16px 24px;
@@ -184,5 +190,11 @@
   .image-uploaded {
     width: 168px;
     height: 168px;
+  }
+}
+
+@media (max-width: 767px) {
+  .add-item {
+    margin: 24px 16px;
   }
 }
