@@ -33,12 +33,19 @@ const AddItem = () => {
   }
 
   function handleChange(e, input) {
+    const value = e.target.value;
     if (input === "name") {
-      setName(e.target.value);
+      setName(value);
     } else if (input === "description") {
-      setDescription(e.target.value);
+      setDescription(value);
     } else if (input === "price") {
-      setPrice(e.target.value);
+      const numberValue = value.replace(/[^0-9]/g, "");
+
+      if (numberValue) {
+        setPrice(Number(numberValue).toLocaleString());
+      } else {
+        setPrice("");
+      }
     }
   }
 
