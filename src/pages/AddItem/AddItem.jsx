@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import "./AddItem.css";
 import upload from "../../assets/images/upload.svg";
@@ -6,6 +7,10 @@ import upload from "../../assets/images/upload.svg";
 const AddItem = () => {
   const [imageUrl, setImageUrl] = useState(null);
   const [uploadError, setUploadError] = useState(false);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const nav = useNavigate();
 
   function handleImageUpload(e) {
     const file = e.target.files[0];
@@ -27,15 +32,34 @@ const AddItem = () => {
     setImageUrl(null);
   }
 
+  function handleChange(e, input) {
+    if (input === "name") {
+      setName(e.target.value);
+    } else if (input === "description") {
+      setDescription(e.target.value);
+    } else if (input === "price") {
+      setPrice(e.target.value);
+    }
+  }
+
+  function handleSubmit() {
+    alert("등록 성공!");
+    nav("/items");
+  }
   return (
     <>
       <Header />
       <div className="add-item">
         <div className="register">
           상품 등록하기
-          <button>등록</button>
+          <button
+            disabled={!name.trim() || !description.trim() || !price.trim()}
+            onClick={handleSubmit}
+          >
+            등록
+          </button>
         </div>
-        <div className="info-section">
+        <div className={`info-section ${uploadError ? "size-down" : ""}`}>
           <div className="image-section">
             상품 이미지
             <div className="upload-section">
@@ -72,13 +96,20 @@ const AddItem = () => {
           </div>
           <div className="name-section">
             상품명
-            <input className="name-input" placeholder="상품명을 입력하세요" />
+            <input
+              className="name-input"
+              placeholder="상품명을 입력하세요"
+              onChange={(e) => handleChange(e, "name")}
+              value={name}
+            />
           </div>
           <div className="description-section">
             상품 소개
             <textarea
               className="description-input"
               placeholder="상품 소개를 입력해주세요"
+              onChange={(e) => handleChange(e, "description")}
+              value={description}
             />
           </div>
           <div className="price-section">
@@ -86,6 +117,8 @@ const AddItem = () => {
             <input
               className="price-input"
               placeholder="판매 가격을 입력해주세요"
+              onChange={(e) => handleChange(e, "price")}
+              value={price}
             />
           </div>
           <div className="tag-section">

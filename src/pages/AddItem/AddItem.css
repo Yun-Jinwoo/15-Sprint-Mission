@@ -16,10 +16,15 @@
 
 .register button {
   padding: 12px 23px;
-  background-color: var(--gray400);
+  background-color: var(--blue100);
   color: var(--gray100);
   border: none;
   border-radius: 8px;
+}
+
+.register button:disabled {
+  background-color: var(--gray400);
+  cursor: not-allowed;
 }
 
 .info-section {
@@ -29,6 +34,10 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
+}
+
+.info-section.size-down {
+  gap: 24px;
 }
 
 .image-section,
@@ -106,7 +115,6 @@
 .description-input {
   height: 282px;
   resize: none;
-  white-space: pre-wrap;
   letter-spacing: -0.7px; /* textarea와 input의 간격 차이 때문에 추가 */
 }
 
