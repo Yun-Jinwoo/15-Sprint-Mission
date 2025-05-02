@@ -5,11 +5,26 @@ import upload from "../../assets/images/upload.svg";
 
 const AddItem = () => {
   const [imageUrl, setImageUrl] = useState(null);
+  const [uploadError, setUploadError] = useState(false);
 
-  function handleImageUpload(event) {
-    const file = event.target.files[0];
+  function handleImageUpload(e) {
+    const file = e.target.files[0];
+    if (!file) return;
     const imageUrl = URL.createObjectURL(file);
     setImageUrl(imageUrl);
+    e.target.value = "";
+  }
+
+  function preventUpload(e) {
+    if (imageUrl) {
+      e.preventDefault();
+      setUploadError(true);
+    }
+  }
+
+  function deleteUploadedImage() {
+    setUploadError(false);
+    setImageUrl(null);
   }
 
   return (
@@ -24,7 +39,11 @@ const AddItem = () => {
           <div className="image-section">
             상품 이미지
             <div className="upload-section">
-              <label htmlFor="upload-input" className="upload-button">
+              <label
+                htmlFor="upload-input"
+                className="upload-button"
+                onClick={(e) => preventUpload(e)}
+              >
                 <div className="image-upload">
                   <input
                     type="file"
@@ -40,9 +59,15 @@ const AddItem = () => {
               {imageUrl && (
                 <div className="image-uploaded">
                   <img src={imageUrl} alt="상품이미지" />
-                  <button className="delete-button" />
+                  <button
+                    className="delete-button"
+                    onClick={deleteUploadedImage}
+                  />
                 </div>
               )}
+            </div>
+            <div className={`error-message ${uploadError ? "" : "hidden"}`}>
+              *이미지 등록은 최대 1개까지 가능합니다.
             </div>
           </div>
           <div className="name-section">
