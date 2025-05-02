@@ -10,6 +10,8 @@ const AddItem = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+  const [tag, setTag] = useState("");
+  const [tagList, setTagList] = useState([]);
   const nav = useNavigate();
 
   function handleImageUpload(e) {
@@ -46,7 +48,27 @@ const AddItem = () => {
       } else {
         setPrice("");
       }
+    } else if (input === "tag") {
+      setTag(value);
     }
+  }
+
+  function appendTag(e) {
+    if (e.key === "Enter") {
+      if (tag.trim() !== "") {
+        setTagList((prev) => {
+          const tagSet = new Set(prev);
+          tagSet.add(tag);
+          return [...tagSet];
+        });
+        setTag("");
+      }
+    }
+  }
+
+  function deleteTag(tag) {
+    const newTagList = tagList.filter((item) => item !== tag);
+    setTagList(newTagList);
   }
 
   function handleSubmit() {
@@ -60,7 +82,12 @@ const AddItem = () => {
         <div className="register">
           상품 등록하기
           <button
-            disabled={!name.trim() || !description.trim() || !price.trim()}
+            disabled={
+              !name.trim() ||
+              !description.trim() ||
+              !price.trim() ||
+              !tagList.length
+            }
             onClick={handleSubmit}
           >
             등록
@@ -131,17 +158,26 @@ const AddItem = () => {
           <div className="tag-section">
             태그
             <div className="show-tag">
-              <input className="tag-input" placeholder="태그를 입력해주세요" />
+              <input
+                className="tag-input"
+                placeholder="태그를 입력해주세요"
+                onChange={(e) => handleChange(e, "tag")}
+                value={tag}
+                onKeyDown={(e) => appendTag(e)}
+              />
               <div className="tag-list">
                 <ul>
-                  <li>
-                    #티셔츠
-                    <button className="delete-button" />
-                  </li>
-                  <li>
-                    #상의
-                    <button className="delete-button" />
-                  </li>
+                  {tagList.map((tag, index) => (
+                    <li key={index}>
+                      {tag}
+                      <button
+                        className="delete-button"
+                        onClick={() => {
+                          deleteTag(tag);
+                        }}
+                      ></button>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
