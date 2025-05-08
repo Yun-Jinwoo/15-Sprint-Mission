@@ -3,7 +3,7 @@ import "./MainContent.css";
 const MainContent = ({ img, category, header, content }) => {
   const pos = category === "Search" ? "right" : "left";
   return (
-    <section className="main-content">
+    <section className={`main-content ${pos}`}>
       {pos === "left" && (
         <div className="image-section">
           <img src={img} alt="안내 이미지" />

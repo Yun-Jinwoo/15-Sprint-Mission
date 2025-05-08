@@ -23,14 +23,14 @@ const Home = () => {
         <MainContent
           img={img2}
           category="Search"
-          header="구매를 원하는<br/>상품을 검색하세요"
-          content="구매하고 싶은 물품은 검색해서<br/>쉽게 찾아보세요"
+          header="구매를 원하는 <br/>상품을 검색하세요"
+          content="구매하고 싶은 물품은 검색해서 <br/>쉽게 찾아보세요"
         />
         <MainContent
           img={img3}
           category="Register"
-          header="판매를 원하는<br/>상품을 등록하세요"
-          content="어떤 물건이든 판매하고 싶은 상품을<br/>쉽게 등록하세요"
+          header="판매를 원하는 <br/>상품을 등록하세요"
+          content="어떤 물건이든 판매하고 싶은 상품을 <br/>쉽게 등록하세요"
         />
       </div>
       <BottomBanner />

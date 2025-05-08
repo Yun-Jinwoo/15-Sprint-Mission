@@ -43,3 +43,49 @@
   width: 746px;
   height: 340px;
 }
+
+@media (max-width: 1199px) {
+  .top-banner {
+    height: 771px;
+  }
+  .top-banner .content {
+    flex-direction: column;
+    gap: 121px;
+  }
+
+  .top-banner .text-section {
+    gap: 24px;
+    align-items: center;
+  }
+  .top-banner .text-section br {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .top-banner {
+    height: 540px;
+  }
+  .top-banner .content {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .top-banner .text-section {
+    gap: 18px;
+    font-size: 32px;
+    line-height: 44.8px;
+  }
+  .top-banner .text-section button {
+    padding: 12px 71px;
+  }
+  .top-banner .text-section p {
+    text-align: center;
+  }
+  .top-banner .text-section br {
+    display: inline;
+  }
+  .top-banner .image-section img {
+    width: 448px;
+    height: 204px;
+  }
+}
