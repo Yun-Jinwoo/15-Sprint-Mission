@@ -1,5 +1,5 @@
-import logo from "../assets/images/logo.png";
-import logoMobile from "../assets/images/logo-mobile.png";
+import logo from "../assets/images/logo.svg";
+import logoMobile from "../assets/images/logo-mobile.svg";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import "./Header.css";
 
