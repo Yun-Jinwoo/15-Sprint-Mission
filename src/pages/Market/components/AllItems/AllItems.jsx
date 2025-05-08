@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { getProducts } from "../../../../../src/api.js";
+import { getProducts } from "../../../../api/getProducts.js";
 import Item from "../Item/Item";
 import Pagination from "../Pagination/Pagination.jsx";
 import "./AllItems.css";
