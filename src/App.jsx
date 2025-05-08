@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Market from "./pages/Market/Market";
+import Product from "./pages/Product/Product";
 import Community from "./pages/Community/Community";
 import AddItem from "./pages/AddItem/AddItem";
 import NotFound from "./pages/NotFound/NotFound";
@@ -15,6 +16,7 @@ function App() {
       <Route path="/login" element={<Login type="login" />} />
       <Route path="/signup" element={<Login type="signup" />} />
       <Route path="/items" element={<Market />} />
+      <Route path="/items/:id" element={<Product />} />
       <Route path="/boards" element={<Community />} />
       <Route path="/additem" element={<AddItem />} />
       <Route path="*" element={<NotFound />} />
