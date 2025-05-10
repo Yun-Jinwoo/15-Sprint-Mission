@@ -4,6 +4,9 @@ import "./Item.css";
 import heart from "../../../../../src/assets/images/heart.svg";
 import fallback from "../../../../../src/assets/images/fallback.png";
 const Item = ({ item, isLoading = false }) => {
+  const { id, images, name, price, favoriteCount } = item || {};
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const imageSrc = images && images.length > 0 ? images[0] : fallback;
   if (isLoading) {
     return (
       <div className="Item item-skeleton">
@@ -17,10 +20,6 @@ const Item = ({ item, isLoading = false }) => {
     );
   }
 
-  const { id, images, name, price, favoriteCount } = item;
-  const [imageLoaded, setImageLoaded] = useState(false);
-
-  const imageSrc = images && images.length > 0 ? images[0] : fallback;
   return (
     <div className="Item">
       <NavLink to={`/items/${id}`}>
