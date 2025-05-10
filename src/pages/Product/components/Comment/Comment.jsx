@@ -5,11 +5,15 @@ import "./Comment.css";
 
 import option from "../../../../assets/images/ic_options.svg";
 import profile from "../../../../assets/images/ic_profile.svg";
+import noComment from "../../../../assets/images/no_comment.svg";
 
 const Comment = () => {
   const { id } = useParams();
   const [comments, setComments] = useState([]);
+  const [content, setContent] = useState("");
+  const [isEdit, setIsEdit] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [activeEditIndex, setActiveEditIndex] = useState(null);
   const [activeDropdownIndex, setActiveDropdownIndex] = useState(null);
 
   useEffect(() => {
@@ -48,54 +52,115 @@ const Comment = () => {
   }
 
   return (
-    <div className="comment-section">
-      <div className="make-comment">
-        <label htmlFor="comment-input" className="comment-label">
-          문의하기
-        </label>
-        <textarea
-          id="comment-input"
-          placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
-          className="comment-input"
-        ></textarea>
-        <button className="register-button">등록</button>
-      </div>
-      <ul className="comment-list">
-        {comments.map((comment, index) => (
-          <li key={index} className="comment">
-            <div className="comment-detail">
-              <div className="content">{comment.content}</div>
-              <div className="option">
-                <button
-                  className="option-button"
-                  onClick={() => toggleDropdown(index)}
-                >
-                  <img src={option} alt="설정" />
-                </button>
-                {activeDropdownIndex === index && (
-                  <div className="orderby-dropdown">
-                    <div className="first-option">수정하기</div>
-                    <div className="second-option">삭제하기</div>
+    <>
+      <div className="comment-section">
+        <div className="make-comment">
+          <label htmlFor="comment-input" className="comment-label">
+            문의하기
+          </label>
+          <textarea
+            id="comment-input"
+            placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+            className="comment-input"
+            onChange={(e) => setContent(e.target.value)}
+            value={content}
+          ></textarea>
+          <button className="register-button" disabled={content.trim() === ""}>
+            등록
+          </button>
+        </div>
+        {comments.length === 0 ? (
+          <div className="no-comments">
+            <img src={noComment} />
+            <p>아직 문의가 없어요.</p>
+          </div>
+        ) : (
+          <ul className="comment-list">
+            {comments.map((comment, index) => (
+              <li key={index} className="comment">
+                <div className="comment-detail">
+                  {activeEditIndex === index && isEdit ? (
+                    <textarea
+                      className="comment-edit"
+                      defaultValue={comment.content}
+                    />
+                  ) : (
+                    <>
+                      <div className="content">{comment.content}</div>
+                      <div className="option">
+                        <button
+                          className="option-button"
+                          onClick={() => toggleDropdown(index)}
+                        >
+                          <img src={option} alt="설정" />
+                        </button>
+                        {activeDropdownIndex === index && (
+                          <div className="orderby-dropdown">
+                            <div
+                              className="first-option"
+                              onClick={() => {
+                                setIsEdit(true);
+                                setActiveEditIndex(index);
+                              }}
+                            >
+                              수정하기
+                            </div>
+                            <div
+                              className="second-option"
+                              onClick={() => {
+                                alert("삭제 완료! (기능구현x)");
+                                setActiveDropdownIndex(null);
+                              }}
+                            >
+                              삭제하기
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </>
+                  )}
+                </div>
+                <div className="user-info">
+                  <div className="user-image">
+                    <img
+                      src={comment.writer.image ?? profile}
+                      alt="프로필 이미지"
+                    />
                   </div>
-                )}
-              </div>
-            </div>
-            <div className="user-info">
-              <div className="user-image">
-                <img
-                  src={comment.writer.image ?? profile}
-                  alt="프로필 이미지"
-                />
-              </div>
-              <div className="user-text">
-                <div className="user-name">{comment.writer.nickname}</div>
-                <div className="date">{timeAgo(comment.createdAt)}</div>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+                  <div className="user-text">
+                    <div className="user-name">{comment.writer.nickname}</div>
+                    <div className="date">{timeAgo(comment.createdAt)}</div>
+                  </div>
+                  {activeEditIndex === index && isEdit && (
+                    <div className="edit-buttons">
+                      <button
+                        className="cancel"
+                        onClick={() => {
+                          setIsEdit(false);
+                          setActiveDropdownIndex(null);
+                        }}
+                      >
+                        취소
+                      </button>
+                      <button
+                        className="edit"
+                        onClick={() => {
+                          alert("수정 완료! (기능구현x)");
+                          setIsEdit(false);
+                          setActiveDropdownIndex(null);
+                        }}
+                      >
+                        수정 완료
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </>
   );
 };
 
