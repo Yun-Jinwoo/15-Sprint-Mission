@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getProduct } from "../../../../api/getProduct";
+import "./ProductInfo.css";
+
+import profile from "../../../../assets/images/ic_profile.svg";
+import heart from "../../../../assets/images/ic_heart.svg";
+import fallback from "../../../../assets/images/fallback.png";
 
 const ProductInfo = () => {
   const { id } = useParams();
@@ -10,7 +15,6 @@ const ProductInfo = () => {
   useEffect(() => {
     async function getItemInfo() {
       const item = await getProduct({ id });
-      console.log(item);
       setItem(item);
       setLoading(false);
     }
@@ -21,37 +25,53 @@ const ProductInfo = () => {
   return (
     <>
       {!loading && (
-        <div className="info-section">
+        <div className="product-info">
           <div className="image-section">
-            <img src={item.images[0]} alt="상품이미지" />
+            <img
+              src={item.images[0] ?? fallback}
+              onError={(e) => {
+                e.target.src = fallback;
+              }}
+              alt="상품이미지"
+            />
           </div>
           <div className="text-section">
-            <div className="product-info">
-              <div className="item-name">{item.name}</div>
-              <div className="item-price">{item.price.toLocaleString()}</div>
+            <div className="item-info">
+              <div className="item-header">
+                <div className="item-name">{item.name}</div>
+                <div className="item-price">
+                  {item.price.toLocaleString()}원
+                </div>
+              </div>
               <div className="item-description">
-                <p>상품 소개</p>
+                <h3>상품 소개</h3>
                 <p>{item.description}</p>
               </div>
               <div className="item-tags">
-                <p>상품 태그</p>
-                {item.tags.map((tag, index) => (
-                  <div key={index} className="tag">
-                    {tag}
-                  </div>
-                ))}
+                <h3>상품 태그</h3>
+                <ul className="tag-list">
+                  {item.tags.map((tag, index) => (
+                    <li key={index} className="tag">
+                      #{tag}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
             <div className="user-info">
-              <div className="image-section">
-                <img src={item.image} alt="" />
+              <div className="user-image">
+                <img src={item.image ?? profile} alt="프로필 이미지" />
               </div>
-              <div className="text-section">
+              <div className="user-text">
                 <div className="user-name">{item.ownerNickname}</div>
-                <div className="date">{item.createdAt}</div>
+                <div className="date">
+                  {item.createdAt.split("T")[0].replaceAll("-", ". ")}
+                </div>
               </div>
               <div className="favorite-section">
-                <button>heart</button>
+                <button>
+                  <img src={heart} alt="좋아요 아이콘" />
+                </button>
                 {item.favoriteCount}
               </div>
             </div>
