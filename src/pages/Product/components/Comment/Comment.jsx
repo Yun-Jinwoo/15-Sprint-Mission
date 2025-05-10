@@ -1,0 +1,102 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getComments } from "../../../../api/getComments";
+import "./Comment.css";
+
+import option from "../../../../assets/images/ic_options.svg";
+import profile from "../../../../assets/images/ic_profile.svg";
+
+const Comment = () => {
+  const { id } = useParams();
+  const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [activeDropdownIndex, setActiveDropdownIndex] = useState(null);
+
+  useEffect(() => {
+    async function getItemInfo() {
+      const comments = await getComments({ id });
+      console.log(comments.list);
+      setComments(comments.list);
+      setLoading(false);
+    }
+
+    getItemInfo();
+  }, []);
+
+  function toggleDropdown(index) {
+    setActiveDropdownIndex((prev) => (prev === index ? null : index));
+  }
+
+  function timeAgo(dateInput) {
+    const date = new Date(dateInput);
+    const now = new Date();
+    const seconds = Math.floor((now - date) / 1000);
+
+    if (seconds < 60) return `${seconds}초 전`;
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes}분 전`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}시간 전`;
+    const days = Math.floor(hours / 24);
+    if (days < 7) return `${days}일 전`;
+    const weeks = Math.floor(days / 7);
+    if (weeks < 5) return `${weeks}주 전`;
+    const months = Math.floor(days / 30);
+    if (months < 12) return `${months}개월 전`;
+    const years = Math.floor(days / 365);
+    return `${years}년 전`;
+  }
+
+  return (
+    <div className="comment-section">
+      <div className="make-comment">
+        <label htmlFor="comment-input" className="comment-label">
+          문의하기
+        </label>
+        <textarea
+          id="comment-input"
+          placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+          className="comment-input"
+        ></textarea>
+        <button className="register-button">등록</button>
+      </div>
+      <ul className="comment-list">
+        {comments.map((comment, index) => (
+          <li key={index} className="comment">
+            <div className="comment-detail">
+              <div className="content">{comment.content}</div>
+              <div className="option">
+                <button
+                  className="option-button"
+                  onClick={() => toggleDropdown(index)}
+                >
+                  <img src={option} alt="설정" />
+                </button>
+                {activeDropdownIndex === index && (
+                  <div className="orderby-dropdown">
+                    <div className="first-option">수정하기</div>
+                    <div className="second-option">삭제하기</div>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="user-info">
+              <div className="user-image">
+                <img
+                  src={comment.writer.image ?? profile}
+                  alt="프로필 이미지"
+                />
+              </div>
+              <div className="user-text">
+                <div className="user-name">{comment.writer.nickname}</div>
+                <div className="date">{timeAgo(comment.createdAt)}</div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Comment;
