@@ -69,6 +69,15 @@
   order: 3;
 }
 
+.AllItems .register:hover {
+  background-color: var(--blue200);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: translateY(2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 .AllItems .orderby {
   padding: 12px 20px;
   background-color: #ffffff;
