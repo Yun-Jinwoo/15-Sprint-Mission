@@ -104,7 +104,33 @@ const Comment = () => {
             등록
           </button>
         </div>
-        {comments.length === 0 ? (
+
+        {loading ? (
+          <ul className="comment-list">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <li key={i} className="comment">
+                <div className="comment-detail">
+                  <div className="skeleton text" style={{ width: "70%" }}></div>
+                </div>
+                <div className="user-info">
+                  <div className="user-image">
+                    <div className="skeleton avatar"></div>
+                  </div>
+                  <div className="user-text">
+                    <div
+                      className="skeleton text"
+                      style={{ width: "10%" }}
+                    ></div>
+                    <div
+                      className="skeleton text"
+                      style={{ width: "5%" }}
+                    ></div>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : comments.length === 0 ? (
           <div className="no-comments">
             <img src={noComment} />
             <p>아직 문의가 없어요.</p>

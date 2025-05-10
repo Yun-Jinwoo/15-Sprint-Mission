@@ -154,6 +154,42 @@
   align-items: center;
 }
 
+.skeleton {
+  background-color: #e2e2e2;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.product-info .skeleton.image {
+  width: 100%;
+  border-radius: 16px;
+  aspect-ratio: 1/1;
+}
+
+.product-info .skeleton.text {
+  height: 20px;
+  margin: 8px 0;
+}
+
+.product-info .skeleton.tag {
+  width: 100px;
+  height: 36px;
+  margin-right: 8px;
+  display: inline-block;
+}
+
 @media (max-width: 1199px) {
   .product-info {
     width: inherit;
