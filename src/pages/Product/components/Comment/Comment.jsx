@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { getComments } from "../../../../api/getComments";
-import useDropdownClose from "../../../../hooks/useDropdownClose";
 import "./Comment.css";
 
 import option from "../../../../assets/images/ic_options.svg";
