@@ -3,7 +3,7 @@ import "./base.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import LoginPage from "./pages/Login/LoginPage";
-import SignupPage from "./pages/Login/SignUpPage";
+import SignupPage from "./pages/Login/SignupPage";
 import Market from "./pages/Market/Market";
 import Product from "./pages/Product/Product";
 import Community from "./pages/Community/Community";
