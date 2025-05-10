@@ -20,7 +20,6 @@ const Comment = () => {
   useEffect(() => {
     async function getItemInfo() {
       const comments = await getComments({ id });
-      console.log(comments.list);
       setComments(comments.list);
       setLoading(false);
     }
