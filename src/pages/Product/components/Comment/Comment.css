@@ -35,14 +35,31 @@
   color: var(--gray400);
 }
 
-.comment-section .register-button {
-  padding: 12px 23px;
+.comment-section .comment-edit {
+  height: 80px;
+  width: 1200px;
+  resize: none;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--gray100);
+}
+
+.comment-section .register-button,
+.comment-section .cancel,
+.comment-section .edit {
+  padding: 10px 23px;
   background-color: var(--blue100);
   color: var(--gray100);
   border: none;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
+  line-height: 26px;
+  margin-bottom: 12px;
+}
+
+.comment-section .register-button {
   margin: 7px 0 0 auto;
 }
 
@@ -55,6 +72,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-bottom: 64px;
 }
 
 .comment-section .comment {
@@ -145,4 +163,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+.comment-section .edit-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.comment-section .cancel {
+  padding: 14px 20px 7px 20px;
+  background-color: white;
+  color: var(--gray500);
+}
+
+.no-comments {
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--gray400);
+  margin-bottom: 48px;
 }
