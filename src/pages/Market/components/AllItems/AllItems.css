@@ -97,7 +97,7 @@
   background-color: white;
 }
 
-.orderby-dropdown {
+.AllItems .orderby-dropdown {
   position: absolute;
   background: white;
   border: 1px solid var(--gray200);
@@ -107,7 +107,7 @@
   bottom: -92px;
 }
 
-.orderby-dropdown div {
+.AllItems .orderby-dropdown div {
   width: 130px;
   height: 42px;
   font-size: 16px;
@@ -118,7 +118,7 @@
   align-items: center;
 }
 
-.orderby-dropdown .first-option {
+.AllItems .orderby-dropdown .first-option {
   border-bottom: 1px solid var(--gray200);
 }
 
