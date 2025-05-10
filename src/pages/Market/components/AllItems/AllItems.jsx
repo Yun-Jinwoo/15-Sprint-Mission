@@ -24,12 +24,6 @@ const AllItems = ({ deviceType }) => {
     nav("/additem");
   };
 
-  const getItemSize = () => {
-    if (deviceType === "mobile") return "all-four";
-    if (deviceType === "tablet") return "all-six";
-    return "all-ten";
-  };
-
   useEffect(() => {
     if (deviceType === "mobile") {
       setPageSize(4);
@@ -55,6 +49,22 @@ const AllItems = ({ deviceType }) => {
 
     getItems();
   }, [currentPage, orderBy, searchKeyword, pageSize]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setShowDropdown(false);
+      }
+    };
+
+    if (showDropdown) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [showDropdown]);
 
   const handleOrderChange = (orderType) => {
     setOrderBy(orderType);

@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { getComments } from "../../../../api/getComments";
+import useDropdownClose from "../../../../hooks/useDropdownClose";
 import "./Comment.css";
 
 import option from "../../../../assets/images/ic_options.svg";
@@ -15,6 +16,7 @@ const Comment = () => {
   const [loading, setLoading] = useState(true);
   const [activeEditIndex, setActiveEditIndex] = useState(null);
   const [activeDropdownIndex, setActiveDropdownIndex] = useState(null);
+  const activeDropdownRef = useRef(null);
 
   useEffect(() => {
     async function getItemInfo() {
@@ -26,6 +28,41 @@ const Comment = () => {
 
     getItemInfo();
   }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setActiveDropdownIndex(null);
+      }
+    };
+
+    if (activeDropdownIndex || activeDropdownIndex === 0) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeDropdownIndex]);
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (
+        activeDropdownRef.current &&
+        !activeDropdownRef.current.contains(e.target)
+      ) {
+        setActiveDropdownIndex(null);
+      }
+    }
+
+    if (activeDropdownIndex !== null) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [activeDropdownIndex]);
 
   function toggleDropdown(index) {
     setActiveDropdownIndex((prev) => (prev === index ? null : index));
@@ -95,7 +132,10 @@ const Comment = () => {
                           <img src={option} alt="설정" />
                         </button>
                         {activeDropdownIndex === index && (
-                          <div className="orderby-dropdown">
+                          <div
+                            className="orderby-dropdown"
+                            ref={activeDropdownRef}
+                          >
                             <div
                               className="first-option"
                               onClick={() => {
