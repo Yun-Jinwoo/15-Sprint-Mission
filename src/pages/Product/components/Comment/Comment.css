@@ -110,7 +110,7 @@
 
 .comment-section .user-info {
   display: flex;
-  gap: 18px;
+  gap: 8px;
   align-items: center;
   margin-bottom: 12px;
 }
@@ -191,4 +191,41 @@
   line-height: 26px;
   color: var(--gray400);
   margin-bottom: 48px;
+}
+
+@media (max-width: 1199px) {
+  .comment-section {
+    gap: 40px;
+    width: inherit;
+    margin: 0 24px;
+  }
+
+  .comment-section .comment-list {
+    margin-bottom: 56px;
+  }
+
+  .no-comments {
+    width: inherit;
+  }
+}
+
+@media (max-width: 767px) {
+  .comment-section {
+    margin: 0 16px;
+  }
+
+  .comment-section .comment-list {
+    margin-bottom: 40px;
+  }
+
+  .comment-section .orderby-dropdown {
+    left: -78px;
+    bottom: -100px;
+  }
+
+  .comment-section .orderby-dropdown div {
+    width: 102px;
+    height: 45px;
+    font-size: 14px;
+  }
 }
