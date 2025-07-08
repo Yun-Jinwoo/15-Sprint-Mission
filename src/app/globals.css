@@ -1,5 +1,26 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "NanumSquareNeo";
+  src: url("/fonts/NanumSquareNeo-bRg.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NanumSquareNeo";
+  src: url("/fonts/NanumSquareNeo-cBd.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NanumSquareNeo";
+  src: url("/fonts/NanumSquareNeo-dEb.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
 /* reset */
 @layer base {
   html,
@@ -58,7 +79,7 @@
   }
 
   html {
-    font-family: "SpoqaHanSansNeo-Regular", sans-serif;
+    font-family: "NanumSquareNeo", sans-serif;
   }
 }
 
@@ -75,9 +96,6 @@
   --color-rose-500: #f43f5e;
   --color-lime-300: #bef264;
   --color-amber-800: #92400e;
-  --font-weight-bold: 800;
-  --font-weight-semibold: 700;
-  --font-weight-regular: 400;
   --spacing: 0.0625rem;
   --text-h1: 20px;
   --text-h2: 18px;
